@@ -5,7 +5,7 @@ api-version: '1.21'
 author: Nouridin
 description: A decentralized player-driven trading system for Minecraft
 website: https://github.com/Nouridin
-depend: [Vault]
+depend:
 
 commands:
   shop:
