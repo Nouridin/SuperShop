@@ -1,10 +1,10 @@
 name: supershop
-version: '1.0.0'
+version: '1.1.0'
 main: me.nouridin.supershop.supershop
 api-version: '1.21'
 author: Nouridin
-description: A decentralized player-driven trading system for Minecraft
-website: https://github.com/Nouridin
+description: A decentralized player-driven trading system for servers
+website: https://modrinth.com/plugin/super-shop
 depend:
 
 commands:
@@ -56,4 +56,7 @@ permissions:
     default: op
   supershop.teleport:
     description: Permission to teleport to shops from search results
+    default: op
+  supershop.update.notify:
+    description: Receive Plugin updates
     default: op

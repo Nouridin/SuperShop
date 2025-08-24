@@ -92,4 +92,11 @@ public class ShopItem {
     public boolean hasDescription() {
         return description != null && !description.trim().isEmpty();
     }
+
+    public ItemStack toItemStack() {
+        ItemStack clone = itemStack.clone();
+        clone.setAmount(quantity); // make sure it respects the stored quantity
+        return clone;
+    }
+
 }

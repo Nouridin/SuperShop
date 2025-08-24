@@ -23,38 +23,41 @@ public class ChestInteractListener implements Listener {
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) {
             return;
         }
-        
+
         Block clickedBlock = event.getClickedBlock();
         if (clickedBlock == null || clickedBlock.getType() != Material.CHEST) {
             return;
         }
-        
+
         Player player = event.getPlayer();
         Shop shop = plugin.getShopManager().getShopAtLocation(clickedBlock.getLocation());
-        
+
         if (shop == null) {
             return;
         }
-        
+
         event.setCancelled(true);
-        
-        if (!shop.isActive()) {
-            MessageUtils.sendMessage(player, "&cThis shop is currently inactive!");
-            return;
-        }
-        
+
         if (shop.getOwnerId().equals(player.getUniqueId())) {
+            // Owner can always open, even if inactive
             if (player.isSneaking()) {
                 showQuickShopInfo(player, shop);
             } else {
                 showShopManagement(player, shop);
             }
         } else {
-            // Always show the shop GUI, even if empty - it will display a nice "no items" message
+            // Non-owners cannot open inactive shops
+            if (!shop.isActive()) {
+                MessageUtils.sendMessage(player, "&cThis shop is currently inactive!");
+                return;
+            }
+
+            // Always show the shop GUI, even if empty
             showShopBrowsing(player, shop);
         }
     }
-    
+
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onBlockBreak(BlockBreakEvent event) {
         Block block = event.getBlock();

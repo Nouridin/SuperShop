@@ -16,7 +16,7 @@ public class ShopSelectionGUI extends BaseGUI {
     private final int shopsPerPage = 21; // 3 rows of 7 shops
     
     public ShopSelectionGUI(supershop plugin, Player player, List<Shop> shops) {
-        super(plugin, player, "&6Select Shop to Manage", 54);
+        super(plugin, player, "&4&lSelect Shop to Manage", 54);
         this.shops = shops;
         this.currentPage = 0;
     }

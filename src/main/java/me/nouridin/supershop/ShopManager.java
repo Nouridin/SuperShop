@@ -47,7 +47,7 @@ public class ShopManager {
         }
         
         if (!shop.getOwnerId().equals(player.getUniqueId())) {
-            MessageUtils.sendMessage(player, "&cYou can only remove your own shops! Use '/shop force remove' if you're an operator.");
+            MessageUtils.sendMessage(player, "&cYou can only remove your own shops! Use '/shop force remove' if you're an admin.");
             return false;
         }
         

@@ -21,22 +21,22 @@ public class AddItemGUI extends BaseGUI {
     // Slot definitions
     private static final int ITEM_SLOT = 20;
     private static final int[] PRICE_SLOTS = {28, 29, 30, 31, 32, 33, 34};
-    
+
     public AddItemGUI(supershop plugin, Player player, Shop shop) {
-        super(plugin, player, "&6Add Item to Shop", 54);
+        super(plugin, player, "&4&lAdd Item to Shop", 54);
         this.shop = shop;
         this.priceItems = new ArrayList<>();
         this.description = "";
-        
+
         // Make item and price slots interactable
         addInteractableSlot(ITEM_SLOT);
         addInteractableSlots(PRICE_SLOTS);
     }
-    
+
     @Override
     protected void setupInventory() {
         fillBorder(Material.GREEN_STAINED_GLASS_PANE);
-        
+
         setupInstructions();
         setupItemSelection();
         setupPriceArea();
@@ -46,7 +46,7 @@ public class AddItemGUI extends BaseGUI {
     private void setupInstructions() {
         ItemStack instructions = createInfoItem("&6How to Add Items",
                 "&71. Drag the item you want to sell into the slot below",
-                "&72. Drag price items into the price slots",
+                "&72. Click 'Set Price Items' to choose currency items",
                 "&73. Click 'Add Item' to confirm");
         inventory.setItem(4, instructions);
     }
@@ -70,25 +70,32 @@ public class AddItemGUI extends BaseGUI {
                 inventory.setItem(PRICE_SLOTS[i], priceItems.get(i));
             } else {
                 ItemStack placeholder = createButton(Material.LIGHT_GRAY_STAINED_GLASS_PANE,
-                    "&7Price Item " + (i + 1), "&eDrag an item here to set as price");
+                    "&7Price Item " + (i + 1), "&7Set price using the button below");
                 inventory.setItem(PRICE_SLOTS[i], placeholder);
             }
         }
-        
+
+        // Set price button (replaces drag-and-drop functionality)
+        ItemStack setPriceButton = createButton(Material.GOLD_INGOT, "&eSet Price Items",
+            "&7Click to open price selection menu",
+            "&7Choose items and quantities without needing them in inventory",
+            "&7Current price items: &f" + (priceItems.isEmpty() ? "None" : priceItems.size()));
+        inventory.setItem(36, setPriceButton);
+
         // Clear price button
         if (!priceItems.isEmpty()) {
             ItemStack clearPrice = createButton(Material.BARRIER, "&cClear Price Items",
                 "&7Remove all price items");
             inventory.setItem(37, clearPrice);
         }
-        
+
         // Description button
         ItemStack descButton = createButton(Material.WRITABLE_BOOK, "&eSet Description",
             "&7Current: &f" + (description.isEmpty() ? "None" : description),
             "&7Click to set item description");
         inventory.setItem(38, descButton);
     }
-    
+
     private void setupControls() {
         // Add item button
         if (selectedItem != null && !priceItems.isEmpty()) {
@@ -96,22 +103,22 @@ public class AddItemGUI extends BaseGUI {
                 "&7Click to add this item to your shop");
             inventory.setItem(49, addItem);
         }
-        
+
         // Back button
         ItemStack back = createBackButton();
         inventory.setItem(45, back);
-        
+
         // Close button
         ItemStack close = createCloseButton();
         inventory.setItem(53, close);
     }
-    
+
     @Override
     protected void handleClick(InventoryClickEvent event) {
         int slot = event.getSlot();
         ItemStack clickedItem = event.getCurrentItem();
         ItemStack cursorItem = event.getCursor();
-        
+
         // Handle item placement in item slot
         if (slot == ITEM_SLOT) {
             if (cursorItem != null && cursorItem.getType() != Material.AIR && !isPlaceholder(cursorItem)) {
@@ -162,11 +169,15 @@ public class AddItemGUI extends BaseGUI {
                 }
             }
         }
-        
+
         // Handle control buttons (these should be cancelled)
         event.setCancelled(true);
-        
+
         switch (slot) {
+            case 36: // Set price items
+                close();
+                new PriceSelectionGUI(plugin, player, this).open();
+                break;
             case 37: // Clear price items
                 priceItems.clear();
                 refresh();
@@ -186,16 +197,16 @@ public class AddItemGUI extends BaseGUI {
                 break;
         }
     }
-    
+
     private void handleSetDescription() {
         close();
         MessageUtils.sendMessage(player, "&eEnter item description in chat (or type 'cancel' to cancel):");
         MessageUtils.sendMessage(player, "&7Current description: &f" + (description.isEmpty() ? "None" : description));
-        
+
         // In a full implementation, you would use AsyncPlayerChatEvent to capture the description
         // For now, we'll just show a message
         MessageUtils.sendMessage(player, "&7Description feature coming soon! Reopening shop management...");
-        
+
         plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
             new ShopManagementGUI(plugin, player, shop).open();
         }, 60L); // 3 seconds delay
@@ -265,7 +276,7 @@ public class AddItemGUI extends BaseGUI {
         }
         return false;
     }
-    
+
     private void removeItemsFromInventory(ItemStack item, int amount) {
         int remaining = amount;
         for (int i = 0; i < player.getInventory().getSize() && remaining > 0; i++) {
@@ -274,11 +285,16 @@ public class AddItemGUI extends BaseGUI {
                 int removeAmount = Math.min(remaining, invItem.getAmount());
                 invItem.setAmount(invItem.getAmount() - removeAmount);
                 remaining -= removeAmount;
-                
+
                 if (invItem.getAmount() <= 0) {
                     player.getInventory().setItem(i, null);
                 }
             }
         }
+    }
+
+    // Method called by PriceSelectionGUI to set the price items
+    public void setPriceItems(List<ItemStack> priceItems) {
+        this.priceItems = new ArrayList<>(priceItems);
     }
 }

@@ -7,6 +7,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class EditItemGUI extends BaseGUI {
     
@@ -20,7 +21,7 @@ public class EditItemGUI extends BaseGUI {
     private static final int[] PRICE_SLOTS = {28, 29, 30, 31, 32, 33, 34};
     
     public EditItemGUI(supershop plugin, Player player, Shop shop, ShopItem shopItem) {
-        super(plugin, player, "&6Edit Item", 54);
+        super(plugin, player, "&4&lEdit Item", 54);
         this.shop = shop;
         this.shopItem = shopItem;
         this.priceItems = new ArrayList<>(shopItem.getPriceItems());
@@ -332,13 +333,27 @@ public class EditItemGUI extends BaseGUI {
         }
 
     }
-    
+
     private void handleRemoveItem() {
         if (plugin.getShopManager().removeItemFromShop(shop.getShopId(), shopItem.getItemId(), player)) {
+            // Return the item to the player
+            ItemStack item = shopItem.getItemStack().clone();
+            item.setAmount(shopItem.getQuantity());
+
+            Map<Integer, ItemStack> leftover = player.getInventory().addItem(item);
+
+            // Drop leftovers on the ground if inventory is full
+            for (ItemStack drop : leftover.values()) {
+                player.getWorld().dropItemNaturally(player.getLocation(), drop);
+            }
+
+            MessageUtils.sendMessage(player, "&aItem returned to your inventory!");
+
             close();
             new ShopManagementGUI(plugin, player, shop).open();
         }
     }
+
 
     private int countItemInInventory(Player player, ItemStack target) {
         int count = 0;

@@ -48,7 +48,7 @@ public class SearchBookGUI extends BaseGUI {
     }
     
     public SearchBookGUI(supershop plugin, Player player, String initialSearch) {
-        super(plugin, player, "&6Marketplace Browser", 54);
+        super(plugin, player, "&4&lMarketplace Browser", 54);
         this.searcher = player;
         this.currentPage = 0;
         this.searchQuery = initialSearch;

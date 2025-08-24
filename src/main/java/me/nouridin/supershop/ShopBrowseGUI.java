@@ -17,7 +17,7 @@ public class ShopBrowseGUI extends BaseGUI {
     private final int itemsPerPage = 21; // 3 rows of 7 items
     
     public ShopBrowseGUI(supershop plugin, Player player, Shop shop) {
-        super(plugin, player, "&6" + shop.getOwnerName() + "'s Shop", 54);
+        super(plugin, player, "&4&l" + shop.getOwnerName() + "'s Shop", 54);
         this.shop = shop;
         this.currentPage = 0;
     }

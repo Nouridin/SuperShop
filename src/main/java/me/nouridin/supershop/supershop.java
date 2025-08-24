@@ -31,7 +31,12 @@ public final class supershop extends JavaPlugin {
         // Load shops from database
         shopManager.loadAllShops();
         
-        getLogger().info("WL Super Shop has been enabled!");
+        getLogger().info("Super Shop has been enabled!");
+
+        // Check for updates
+        UpdateChecker updateChecker = new UpdateChecker(this);
+        updateChecker.checkForUpdates();
+
     }
 
     @Override
@@ -42,7 +47,7 @@ public final class supershop extends JavaPlugin {
         if (databaseManager != null) {
             databaseManager.closeConnection();
         }
-        getLogger().info("WL Super Shop has been disabled!");
+        getLogger().info("Super Shop has been disabled!");
     }
     
     public static supershop getInstance() {

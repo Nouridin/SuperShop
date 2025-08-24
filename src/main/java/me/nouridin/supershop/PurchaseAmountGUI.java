@@ -12,7 +12,7 @@ public class PurchaseAmountGUI extends BaseGUI {
     private int selectedAmount;
     
     public PurchaseAmountGUI(supershop plugin, Player player, Shop shop, ShopItem shopItem) {
-        super(plugin, player, "&6Select Purchase Amount", 27);
+        super(plugin, player, "&4&lSelect Purchase Amount", 27);
         this.shop = shop;
         this.shopItem = shopItem;
         this.selectedAmount = 1;

@@ -16,7 +16,7 @@ public class RevenueCollectionGUI extends BaseGUI {
     private final int itemsPerPage = 21; // 3 rows of 7 items
     
     public RevenueCollectionGUI(supershop plugin, Player player, Shop shop) {
-        super(plugin, player, "&6Collect Revenue", 54);
+        super(plugin, player, "&4&lCollect Revenue", 54);
         this.shop = shop;
         this.currentPage = 0;
     }

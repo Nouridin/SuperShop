@@ -8,6 +8,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ShopManagementGUI extends BaseGUI {
 
@@ -16,7 +17,7 @@ public class ShopManagementGUI extends BaseGUI {
     private final int itemsPerPage = 21; // 3 rows of 7 item
     
     public ShopManagementGUI(supershop plugin, Player player, Shop shop) {
-        super(plugin, player, "&6Manage Shop", 54);
+        super(plugin, player, "&4&lManage Shop", 54);
         this.shop = shop;
         this.currentPage = 0;
     }
@@ -335,6 +336,18 @@ public class ShopManagementGUI extends BaseGUI {
         } else if (event.isRightClick()) {
             // Remove item
             if (plugin.getShopManager().removeItemFromShop(shop.getShopId(), shopItem.getItemId(), player)) {
+
+                // Give the item back to the player
+                ItemStack item = shopItem.toItemStack(); // assuming you have this method
+                Map<Integer, ItemStack> leftover = player.getInventory().addItem(item);
+
+                // Drop on ground if inventory is full
+                for (ItemStack drop : leftover.values()) {
+                    player.getWorld().dropItemNaturally(player.getLocation(), drop);
+                }
+
+                MessageUtils.sendMessage(player, "&aItem returned to your inventory!");
+
                 refresh();
             }
         } else {

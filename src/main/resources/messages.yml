@@ -1,4 +1,4 @@
-# WL Super Shop Messages Configuration
+# Super Shop Messages Configuration
 
 # General Messages
 general:
@@ -95,7 +95,7 @@ info:
   
 # Help Messages
 help:
-  header: "&6&l=== WL Super Shop Help ==="
+  header: "&6&l=== Super Shop Help ==="
   footer: "&6&l=========================="
   commands:
     - "&e/shop create &7- Create a shop at the chest you're looking at"
