@@ -1,5 +1,8 @@
-package me.nouridin.supershop;
+package me.nouridin.Search;
 
+import me.nouridin.supershop.Shop;
+import me.nouridin.supershop.ShopItem;
+import me.nouridin.supershop.supershop;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

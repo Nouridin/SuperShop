@@ -1,5 +1,7 @@
-package me.nouridin.supershop;
+package me.nouridin.Search;
 
+import me.nouridin.supershop.Shop;
+import me.nouridin.supershop.ShopItem;
 import org.bukkit.Location;
 
 public class SearchResult {

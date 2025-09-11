@@ -175,8 +175,10 @@ public class AddItemGUI extends BaseGUI {
 
         switch (slot) {
             case 36: // Set price items
-                close();
-                new PriceSelectionGUI(plugin, player, this).open();
+                close(); // This will trigger the unregister via GUIManager
+                plugin.getServer().getScheduler().runTask(plugin, () -> {
+                    new PriceSelectionGUI(plugin, player, this).open();
+                });
                 break;
             case 37: // Clear price items
                 priceItems.clear();

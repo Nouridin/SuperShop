@@ -1,5 +1,7 @@
-package me.nouridin.supershop;
+package me.nouridin.Search;
 
+import net.kyori.adventure.text.Component;
+import me.nouridin.supershop.*;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -17,7 +19,7 @@ public class SearchBookGUI extends BaseGUI {
     private List<SearchResult> allResults;
     private List<SearchResult> filteredResults;
     private int currentPage;
-    private final int itemsPerPage = 7; // 7 items in vertical list
+    private final int itemsPerPage = 28; // 4 rows of 7 items
     
     // Search and filter settings
     private String searchQuery = "";
@@ -58,7 +60,7 @@ public class SearchBookGUI extends BaseGUI {
     
     @Override
     protected void setupInventory() {
-        fillBorder(Material.PURPLE_STAINED_GLASS_PANE);
+        fillBorderWith(Material.PURPLE_STAINED_GLASS_PANE);
         
         setupHeader();
         setupFilters();
@@ -134,8 +136,14 @@ public class SearchBookGUI extends BaseGUI {
             return;
         }
         
-        // Display 7 items vertically in slots 10, 19, 28, 37, 11, 20, 29
-        int[] itemSlots = {10, 19, 28, 37, 11, 20, 29};
+        // Display 28 items in the 4 middle rows, excluding the first and last column
+        List<Integer> itemSlotsList = new ArrayList<>();
+        for (int row = 1; row < 5; row++) { // Rows 2, 3, 4, 5 (0-indexed)
+            for (int col = 1; col < 8; col++) { // Columns 2-8 (0-indexed)
+                itemSlotsList.add(row * 9 + col);
+            }
+        }
+        int[] itemSlots = itemSlotsList.stream().mapToInt(i -> i).toArray();
         
         int startIndex = currentPage * itemsPerPage;
         int endIndex = Math.min(startIndex + itemsPerPage, filteredResults.size());
@@ -144,7 +152,9 @@ public class SearchBookGUI extends BaseGUI {
             int itemIndex = startIndex + i;
             if (itemIndex < endIndex) {
                 SearchResult result = filteredResults.get(itemIndex);
-                ItemStack displayItem = createSearchResultDisplay(result, i + 1);
+                // The position number should be relative to the current page's view
+                int displayPosition = (currentPage * itemsPerPage) + i + 1;
+                ItemStack displayItem = createSearchResultDisplay(result, displayPosition);
                 inventory.setItem(itemSlots[i], displayItem);
             }
         }
@@ -157,7 +167,7 @@ public class SearchBookGUI extends BaseGUI {
         
         if (meta != null) {
             String itemName = result.getItemName();
-            meta.setDisplayName(MessageUtils.colorize("&e" + position + ". " + itemName));
+            meta.displayName(Component.text(MessageUtils.colorize("&e" + position + ". " + itemName)));
             
             List<String> lore = new ArrayList<>();
             lore.add(MessageUtils.colorize("&7Quantity: &f" + result.getQuantity()));
@@ -189,7 +199,12 @@ public class SearchBookGUI extends BaseGUI {
                 lore.add(MessageUtils.colorize("&eClick to visit anyway"));
             }
             
-            meta.setLore(lore);
+            // Convert the list of strings to a list of components for the new API
+            List<Component> componentLore = new ArrayList<>();
+            for (String line : lore) {
+                componentLore.add(Component.text(MessageUtils.colorize(line)));
+            }
+            meta.lore(componentLore);
             displayItem.setItemMeta(meta);
         }
         
@@ -301,7 +316,9 @@ public class SearchBookGUI extends BaseGUI {
     
     private void handleSearch() {
         close();
-        new SearchInputGUI(plugin, player, searchQuery).open();
+        plugin.getServer().getScheduler().runTask(plugin, () -> {
+            new SearchInputGUI(plugin, player, searchQuery).open();
+        });
     }
     
     private void handleClearSearch() {
@@ -357,28 +374,37 @@ public class SearchBookGUI extends BaseGUI {
         
         // Check if player owns this shop
         if (result.getShop().getOwnerId().equals(player.getUniqueId())) {
-            // Open shop management GUI for own shop
-            new ShopManagementGUI(plugin, player, result.getShop()).open();
-            MessageUtils.sendMessage(player, "&aOpening your shop management!");
+            plugin.getServer().getScheduler().runTask(plugin, () -> {
+                // Open shop management GUI for own shop
+                new ShopManagementGUI(plugin, player, result.getShop()).open();
+                MessageUtils.sendMessage(player, "&aOpening your shop management!");
+            });
         } else {
-            // Open shop browse GUI for other players' shops
-            new ShopBrowseGUI(plugin, player, result.getShop()).open();
+            plugin.getServer().getScheduler().runTask(plugin, () -> {
+                // Open shop browse GUI for other players' shops
+                new ShopBrowseGUI(plugin, player, result.getShop()).open();
+            });
         }
     }
     
     private SearchResult getSearchResultFromSlot(int slot) {
-        int[] itemSlots = {10, 19, 28, 37, 11, 20, 29};
-        
-        for (int i = 0; i < itemSlots.length; i++) {
-            if (itemSlots[i] == slot) {
-                int itemIndex = currentPage * itemsPerPage + i;
-                if (itemIndex < filteredResults.size()) {
-                    return filteredResults.get(itemIndex);
-                }
-                break;
+        // Check if the slot is within the item display area
+        int row = slot / 9;
+        int col = slot % 9;
+
+        if (row >= 1 && row <= 4 && col >= 1 && col <= 7) {
+            // Calculate the index based on its position in the 4x7 grid
+            int rowIndexInGrid = row - 1; // 0-3
+            int colIndexInGrid = col - 1; // 0-6
+            int itemArrayIndex = (rowIndexInGrid * 7) + colIndexInGrid;
+
+            int itemIndex = (currentPage * itemsPerPage) + itemArrayIndex;
+
+            if (itemIndex >= 0 && itemIndex < filteredResults.size()) {
+                return filteredResults.get(itemIndex);
             }
         }
-        
+
         return null;
     }
     
@@ -468,5 +494,20 @@ public class SearchBookGUI extends BaseGUI {
             }
         }
         return false;
+    }
+
+    private void fillBorderWith(Material material) {
+        ItemStack borderItem = new ItemStack(material);
+        ItemMeta meta = borderItem.getItemMeta();
+        if (meta != null) {
+            meta.displayName(Component.text(" "));
+            borderItem.setItemMeta(meta);
+        }
+
+        for (int i = 0; i < inventory.getSize(); i++) {
+            if (i < 9 || i > 44 || i % 9 == 0 || i % 9 == 8) {
+                inventory.setItem(i, borderItem);
+            }
+        }
     }
 }

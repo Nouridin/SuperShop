@@ -1,5 +1,8 @@
 package me.nouridin.supershop;
 
+import me.nouridin.Search.SearchBookCommand;
+import me.nouridin.Search.SearchBookListener;
+import me.nouridin.Search.SearchManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class supershop extends JavaPlugin {
@@ -9,6 +12,8 @@ public final class supershop extends JavaPlugin {
     private SearchManager searchManager;
     private ConfigManager configManager;
     private DatabaseManager databaseManager;
+    private GUIManager guiManager;
+    private ChatInputManager chatInputManager;
     
     @Override
     public void onEnable() {
@@ -19,6 +24,8 @@ public final class supershop extends JavaPlugin {
         databaseManager = new DatabaseManager(this);
         shopManager = new ShopManager(this);
         searchManager = new SearchManager(this);
+        guiManager = new GUIManager(this);
+        chatInputManager = new ChatInputManager(this);
         
         // Register commands
         getCommand("shop").setExecutor(new ShopCommand(this));
@@ -68,5 +75,13 @@ public final class supershop extends JavaPlugin {
     
     public DatabaseManager getDatabaseManager() {
         return databaseManager;
+    }
+    
+    public GUIManager getGuiManager() {
+        return guiManager;
+    }
+
+    public ChatInputManager getChatInputManager() {
+        return chatInputManager;
     }
 }
