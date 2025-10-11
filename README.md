@@ -1,6 +1,6 @@
 # SuperShop
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/Nouridin/SuperShop/actions) [![Version](https://img.shields.io/badge/version-1.2.0-blue)](https://modrinth.com/plugin/super-shop) [![Discord](https://img.shields.io/discord/1403066205228503150?color=7289DA&label=Discord&logo=discord&logoColor=white)](https://discord.gg/s2pevNCbv4) [![Modrinth](https://img.shields.io/modrinth/dt/super-shop?color=00AF5C&label=Modrinth&logo=modrinth)](https://modrinth.com/plugin/super-shop)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/Nouridin/SuperShop/actions) [![Version](https://img.shields.io/badge/version-1.2.1-blue)](https://modrinth.com/plugin/super-shop) [![Discord](https://img.shields.io/discord/1403066205228503150?color=7289DA&label=Discord&logo=discord&logoColor=white)](https://discord.gg/s2pevNCbv4) [![Modrinth](https://img.shields.io/modrinth/dt/super-shop?color=00AF5C&label=Modrinth&logo=modrinth)](https://modrinth.com/plugin/super-shop)
 
 A decentralized, player-driven chest shop plugin for Spigot/Paper servers.
 
