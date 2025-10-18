@@ -1,8 +1,21 @@
+<div align="center">
+
 # SuperShop
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/Nouridin/SuperShop/actions) [![Version](https://img.shields.io/badge/version-1.2.1-blue)](https://modrinth.com/plugin/super-shop) [![Discord](https://img.shields.io/discord/1403066205228503150?color=7289DA&label=Discord&logo=discord&logoColor=white)](https://discord.gg/s2pevNCbv4) [![Modrinth](https://img.shields.io/modrinth/dt/super-shop?color=00AF5C&label=Modrinth&logo=modrinth)](https://modrinth.com/plugin/super-shop)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/Nouridin/SuperShop/actions) [![Version](https://img.shields.io/badge/version-1.2.1-blue)](https://modrinth.com/plugin/super-shop) [![Discord](https://img.shields.io/discord/1403066205228503150?color=7289DA&label=Discord&logo=discord&logoColor=white)](https://discord.gg/s2pevNCbv4) [![Modrinth](https://img.shields.io/modrinth/dt/super-shop?color=00AF5C&label=Modrinth&logo=modrinth)](https://modrinth.com/plugin/super-shop) [![Java](https://img.shields.io/badge/Java-21+-red?logo=openjdk&logoColor=white)]() [![Spigot](https://img.shields.io/badge/API-Spigot%2FPaper-orange?logo=spigotmc&logoColor=white)]() [![License](https://img.shields.io/github/license/Nouridin/SuperShop)]()
+
 
 A decentralized, player-driven chest shop plugin for Spigot/Paper servers.
+</div>
+
+---
+
+## Installation
+
+1. Download the latest release from [Modrinth](https://modrinth.com/plugin/super-shop).
+2. Place the JAR file into your server’s `plugins/` folder.
+3. Restart the server — configuration files will be generated automatically.
+
 
 ## Features
 
@@ -31,17 +44,18 @@ mvn clean package
 
 The compiled JAR will be located in the `target/` directory.
 
-## Architecture Overview
+### Architecture Overview
 
-The plugin follows a modular, manager-based architecture to separate concerns.
+| Component | Description |
+|------------|-------------|
+| `SuperShop.java` | Main plugin class; initializes managers, commands, and listeners. |
+| `ConfigManager.java` | Loads and provides access to `config.yml` and `messages.yml`. |
+| `DatabaseManager.java` | Handles database connections (SQLite/MySQL). |
+| `ShopManager.java` | Core logic for creating and managing shops. |
+| `SearchManager.java` | Powers global item search. |
+| `GUIManager.java` | Handles GUI registration and events. |
+| `BaseGUI.java` | Abstract base for all GUI menus. |
 
-*   `supershop.java`: The main plugin class, responsible for initializing managers and registering commands/listeners.
-*   `ConfigManager.java`: Loads and provides access to `config.yml` and `messages.yml`.
-*   `DatabaseManager.java`: Handles all database connections and queries for both SQLite and MySQL.
-*   `ShopManager.java`: Manages the core logic for shops, including creation, removal, and item management.
-*   `SearchManager.java`: Powers the item search functionality.
-*   `GUIManager.java`: Manages the lifecycle of all GUIs, directing events to the correct open interface.
-*   `BaseGUI.java`: An abstract class that all GUI menus extend, providing a consistent structure for creating new interfaces.
 
 ## Contributing
 
