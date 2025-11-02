@@ -1,8 +1,5 @@
-# SPDX-License-Identifier: Apache-2.0
-# Copyright 2025 Nouridin Elhofy
-
 name: supershop
-version: '1.2.1'
+version: '2.0.0'
 main: me.nouridin.supershop.supershop
 api-version: '1.21'
 author: Nouridin
@@ -19,6 +16,10 @@ commands:
     description: Search for items in player shops
     usage: /searchbook <item name>
     aliases: [search, finditem]
+  superlang:
+    description: Change your language preference
+    usage: /superlang [locale]
+    aliases: [slang, lang]
 
 permissions:
   supershop.*:

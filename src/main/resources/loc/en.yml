@@ -1,0 +1,553 @@
+# Default English translations for SuperShop
+
+# General
+none: "None"
+done: "&aDone"
+free: "Free"
+
+# General command messages
+command-player-only: "&cThis command can only be run by a player."
+player-not-found: "&cPlayer not found."
+
+# Language command messages
+language:
+  current: "&aYour current language is: &e{0}"
+  available: "&aAvailable languages: &e{0}"
+  usage: "&aUsage: /superlang <language>"
+  not-available: "&cThe language '&e{0}&c' is not available."
+  set-success: "&aYour language has been set to &e{0}&a."
+
+# Time units
+time-unit-day: "day"
+time-unit-days: "days"
+time-unit-hour: "hour"
+time-unit-hours: "hours"
+time-unit-minute: "minute"
+time-unit-minutes: "minutes"
+time-unit-second: "second"
+time-unit-seconds: "seconds"
+
+# Header/Footer
+header-separator: "="
+header-title-color: "&e"
+plugin-prefix: "&6[&eSuperShop&6] "
+footer-separator: "="
+
+# Shop Manager & Core Logic
+shop:
+  not-found: "&cShop not found."
+  not-owner: "&cYou are not the owner of this shop."
+  loaded-from-database: "&aLoaded {0} shops from the database."
+  saved-to-database: "&aSaved {0} shops to the database."
+  create:
+    success: "&aShop created successfully at {0}!"
+    no-permission: "&cYou don't have permission to create a shop."
+    not-looking-at-chest: "&cYou must be looking at a chest to create a shop."
+    already-exists: "&cThere is already a shop at this location."
+    max-shops-reached: "&cYou have reached the maximum number of shops ({0})."
+    failed: "&cFailed to create the shop."
+  created:
+    success: "&aShop created successfully!"
+    manage-tip: "&aUse &e/shop manage&a to add items and manage your new shop."
+    info-tip: "&aUse &e/shop info&a while looking at the chest to see its details."
+  remove:
+    not-owner: "&cYou are not the owner of this shop."
+    success: "&aShop removed successfully."
+    items-returned: "&aItems from the shop have been returned to your inventory."
+    no-items-to-return: "&7No items or revenue to return."
+    items-added-to-inventory: "&aAdded {0} items to your inventory."
+    items-dropped: "&eYour inventory was full. Dropped {0} items on the ground."
+    not-looking-at-chest: "&cYou must be looking at a chest to remove a shop."
+  force-remove:
+    no-permission: "&cYou must be an OP to force remove a shop."
+    items-not-returned: "&eNote: Items were not returned to the owner."
+    not-looking-at-chest: "&cYou must be looking at a chest to force remove a shop."
+  list:
+    no-shops: "&cYou don't have any shops yet. Use &e/shop create&c to get started."
+    header: "Your Shops"
+    item: "&e{0}. &aLocation: &f{1} &aStatus: &f{2} &aItems: &f{3} &7(Manage with /shop manage {4})"
+    manage-tip: "&aUse &e/shop manage <number>&a to manage a shop."
+    create-tip: "&aUse &e/shop create&a to create your first shop!"
+  status:
+    active: "&aActive"
+    inactive: "&cInactive"
+  manage:
+    invalid-number: "&cInvalid shop number. Please choose a number between 1 and {0}."
+    list-tip: "&cUse &e/shop list&c to see your shop numbers."
+    opening-remote: "&aOpening remote management for shop at {0}..."
+    invalid-number-format: "&cInvalid number format. Please use a number."
+  info:
+    not-looking-at-chest: "&cYou must be looking at a chest to view its info."
+    header: "Shop Information"
+    owner: "&aOwner: &f{0}"
+    location: "&aLocation: &f{0}"
+    world: "&aWorld: &f{0}"
+    items-for-sale: "&aItems for sale: &f{0}"
+    status: "&aStatus: &f{0}"
+    created: "&aCreated: &f{0} ago"
+  give:
+    no-permission: "&cYou don't have permission to use this command."
+    received-self: "&aYou have received a Shop Search Book."
+    given-other: "&aYou have given a Shop Search Book to &e{0}&a."
+    received-other: "&aYou have received a Shop Search Book from &e{0}&a."
+  stats:
+    no-permission: "&cYou don't have permission to view shop stats."
+    header: "Shop Statistics"
+    total-shops: "&aTotal Shops: &f{0}"
+    active-shops: "&aActive Shops: &f{0}"
+    total-items: "&aTotal Items for Sale: &f{0}"
+  reload:
+    no-permission: "&cYou don't have permission to reload the plugin."
+    success: "&aSuperShop reloaded successfully."
+  help:
+    header: "SuperShop Help"
+    create: "&e/shop create&7 - Creates a new shop at the chest you are looking at."
+    remove: "&e/shop remove&7 - Removes the shop at the chest you are looking at."
+    list: "&e/shop list&7 - Lists all of your shops."
+    manage: "&e/shop manage [number]&7 - Opens the management GUI for one of your shops."
+    info: "&e/shop info&7 - Shows information about the shop you are looking at."
+    force-remove: "&c/shop force remove&7 - (OP) Forcefully removes a shop."
+    give: "&e/shop give [player]&7 - Gives a player a Shop Search Book."
+    stats: "&e/shop stats&7 - Shows statistics about the shops on the server."
+    reload: "&e/shop reload&7 - Reloads the plugin's configuration."
+  item:
+    added-success: "&aItem added to shop successfully."
+    not-found: "&cThat item could not be found in the shop."
+    removed-success: "&aItem removed from shop successfully."
+    sold-out: "&eYour item '&f{0}&e' has sold out!"
+  purchase:
+    item-unavailable: "&cThis item is no longer available or is out of stock."
+    insufficient-items: "&cYou don't have the required items to make this purchase."
+    success: "&aSuccessfully purchased {0}x {1}!"
+  owner:
+    purchase-notification: "&e{0} &apurchased {1}x {2} from your shop!"
+    revenue-waiting: "&aYou have new revenue waiting! Use &e/shop manage&a to collect it."
+  revenue:
+    no-revenue: "&cYou have no revenue to collect."
+    collected: "&aCollected {0} items from your shop revenue!"
+
+# Listeners
+listener:
+  chest-interact:
+    shop-inactive: "&cThis shop is currently inactive!"
+    cannot-break-not-owner: "&cYou cannot break a shop chest that doesn't belong to you!"
+    shop-owner: "&7Shop owner: &e{0}"
+    force-remove-tip: "&7Use '/shop force remove' if you're an operator."
+    shift-to-confirm-removal: "&cHold SHIFT while breaking to confirm shop removal!"
+    removal-warning: "&7This will permanently delete your shop and all its items."
+    quick-info:
+      title: "&6&lQuick Shop Info"
+      items-for-sale: "&7Items for sale: &e{0}"
+      total-stock: "&7Total stock: &e{0}"
+      status: "&7Status: {0}"
+      last-updated: "&7Last updated: &e{0} ago"
+      manage-tip: "&7Right-click normally to manage shop"
+  search-book:
+    disabled: "&cSearch Book functionality is currently disabled!"
+    no-permission: "&cYou don't have permission to use the Search Book!"
+
+# SearchBook Item
+searchbook:
+  item:
+    name: "&6Shop Search Book"
+    lore1: "&7Right-click to open the shop search menu."
+    lore2: "&7Find items being sold by other players!"
+    lore3: "&eA powerful tool for any adventurer!"
+    lore4: "&7Provided by SuperShop."
+
+# GUI Translations
+gui:
+  available: "&aAvailable"
+  unavailable: "&cUnavailable"
+  active: "&aActive"
+  inactive: "&cInactive"
+  activated: "activated"
+  deactivated: "deactivated"
+  activate: "activate"
+  deactivate: "deactivate"
+  previous-page: "&7← Previous Page"
+  next-page: "&7Next Page →"
+  page-info: "&7Page {0} of {1}"
+  page-info-short: "&7Page {0} of {1}"
+  done: "&aDone"
+  free: "Free"
+  additem:
+    title: "Add Item to Shop"
+    instructions:
+      title: "&e&lInstructions"
+      line1: "&71. Place the item you want to sell in the designated slot."
+      line2: "&72. Set the price using the price selection area."
+      line3: "&73. Click the 'Add Item' button to finalize."
+    item-placeholder:
+      name: "&7Item to Sell"
+      lore: "&fPlace the item you want to sell here."
+    price-placeholder:
+      name: "&7Price Slot {0}"
+      lore: "&fPlace an item here to set it as part of the price."
+    set-price-button:
+      name: "&6Set Price"
+      lore1: "&7Click to open your inventory and"
+      lore2: "&7select items to set as the price."
+      lore3: "&7Current price items: &e{0}"
+    clear-price-button:
+      name: "&cClear Price"
+      lore: "&7Click to remove all price items."
+    description-button:
+      name: "&bSet Description"
+      lore: "&7Current: &f{0}"
+      lore2: "&7Click to set a description for the item."
+    add-button:
+      name: "&aAdd Item to Shop"
+      lore: "&7Click to add this item to your shop."
+    description:
+      prompt: "&aPlease type the description for your item in chat. Type 'cancel' to abort."
+      current: "&aCurrent description: &f{0}"
+      coming-soon: "&eDescription feature is coming soon! Opening management GUI..."
+    error:
+      no-item-selected: "&cYou have not selected an item to sell."
+      no-price-set: "&cYou have not set a price for the item."
+      non-stackable: "&cYou cannot sell a stack of non-stackable items."
+      quantity-too-high: "&cThe quantity is too high. Max stack size is 64."
+      not-enough-items: "&cYou do not have enough of that item in your inventory."
+  edititem:
+    title: "Edit Shop Item"
+    editing-title: "&e&lEditing: &f{0}"
+    original-quantity: "&7Original Quantity: &f{0}"
+    current-quantity: "&7Current Quantity: &f{0}"
+    status: "&7Status: {0}"
+    decrease-1:
+      name: "&c-1"
+      lore: "&7Decrease quantity by 1."
+    decrease-10:
+      name: "&c-10"
+      lore: "&7Decrease quantity by 10."
+    quantity-display: "&eQuantity: {0}"
+    increase-1:
+      name: "&a+1"
+      lore: "&7Increase quantity by 1."
+    increase-10:
+      name: "&a+10"
+      lore: "&7Increase quantity by 10."
+    price-placeholder:
+      name: "&7Price Slot {0}"
+      lore: "&fPlace an item here to set it as part of the price."
+    clear-price-button:
+      name: "&cClear Price"
+      lore: "&7Click to remove all price items."
+    description-button:
+      name: "&bEdit Description"
+      lore: "&7Current: &f{0}"
+      lore2: "&7Click to edit the description for the item."
+    make-unavailable: "&cMake Unavailable"
+    make-available: "&aMake Available"
+    toggle-availability:
+      lore: "&7Click to toggle item availability."
+    save-button:
+      name: "&aSave Changes"
+      lore: "&7Click to save your changes."
+    remove-button:
+      name: "&cRemove Item"
+      lore1: "&7Click to permanently remove this item"
+      lore2: "&7from your shop."
+    availability-toggled: "&aItem availability has been toggled."
+    description:
+      prompt: "&aPlease type the new description in chat. Type 'cancel' to abort."
+      current: "&aCurrent description: &f{0}"
+      coming-soon: "&eDescription feature is coming soon! Re-opening edit GUI..."
+    item-updated-success: "&aItem updated successfully."
+    item-returned-to-inventory: "&aThe item and its stock have been returned to your inventory."
+    error:
+      no-inventory-space: "&cCannot return items, your inventory is full!"
+      min-quantity-1: "&cQuantity must be at least 1."
+      non-stackable: "&cThis item is not stackable."
+      remove-item-failed: "&cFailed to remove item from your inventory."
+      not-enough-items-to-increase: "&cYou don't have any more of this item in your inventory to increase the stock."
+      remove-required-items-failed: "&cCould not remove the required items from your inventory."
+      not-enough-items-to-add: "&cYou don't have enough items to add."
+      no-price-set: "&cYou must set a price for the item."
+      not-enough-items-to-set-quantity: "&cWarning: You have set the quantity to {0}, but you only have {1} in your inventory."
+      quantity-too-high: "&cThe quantity is too high. Max stack size is 64."
+  shopmanagement:
+    title: "&4&lManage Shop"
+    shop-info:
+      title: "&6Shop Information"
+      location: "&7Location: &f{0}"
+      world: "&7World: &f{0}"
+      items: "&7Items: &f{0}"
+      status: "&7Status: {0}"
+      revenue: "&7Revenue: {0}"
+      revenue-waiting: "&e{0} stacks waiting"
+    add-item-button:
+      name: "&aAdd Item"
+      lore1: "&7Click to add an item from your inventory"
+      lore2: "&7to sell in this shop"
+    deactivate-shop-button:
+      name: "&cDeactivate Shop"
+    activate-shop-button:
+      name: "&aActivate Shop"
+    toggle-status-button:
+      lore: "&7Click to {0} this shop"
+    collect-revenue-button:
+      name: "&eCollect Revenue"
+      lore1: "&7You have &e{0} stacks &7waiting"
+      lore2: "&7Total items: &e{0}"
+      lore3: "&7Click to collect all revenue!"
+    no-revenue-button:
+      name: "&7No Revenue"
+      lore1: "&7No revenue to collect yet"
+      lore2: "&7Revenue appears here when customers"
+      lore3: "&7buy items from your shop"
+    remove-shop-button:
+      name: "&cRemove Shop"
+      lore1: "&7Click to permanently remove this shop"
+      lore2: "&7All items and revenue will be returned to you"
+      lore3: "&c&lWARNING: This action is immediate!"
+      lore4: "&eClick once to remove the shop completely"
+    no-items:
+      title: "&7No items in shop"
+      lore: "&7Click 'Add Item' to start selling items!"
+    item:
+      quantity: "&7Quantity: &f{0}"
+      price: "&7Price: &a{0}"
+      status: "&7Status: {0}"
+      description: "&7Description:"
+      left-click: "&eLeft-click to edit"
+      right-click: "&eRight-click to remove"
+      shift-click: "&eShift-click to toggle availability"
+    shop-status-changed: "&aShop {0} successfully!"
+    error:
+      no-revenue: "&cNo revenue to collect!"
+    shop-removed:
+      success: "&aShop removed successfully!"
+      items-in-chest: "&7Items and revenue have been stored in the chest and your inventory."
+      error:
+        failed-to-remove: "&cFailed to remove shop. Trying alternative method..."
+        chest-not-found: "&eChest not found at shop location. Returning items directly to you."
+        failed-to-remove-from-system: "&cFailed to remove shop from system!"
+      success-no-items: "&aShop removed successfully! No items to return."
+      items-returned: "&aReturned {0} items to your inventory."
+      items-dropped: "&eDropped {0} items on the ground (inventory was full)."
+      pickup-items: "&7Pick them up quickly!"
+      no-items-to-return: "&7No items to return."
+    item-marked-as: "&aItem marked as {0}!"
+    item-returned-to-inventory: "&aItem returned to your inventory!"
+  search:
+    title: "&4&lMarketplace Browser"
+    all-items: "All Items"
+    popular-items-search-query: "Popular Items"
+    nearby-shops-search-query: "Nearby Shops"
+    header:
+      title: "&6Marketplace Browser"
+      total-items: "&7Total items: &e{0}"
+      filtered-results: "&7Filtered results: &e{0}"
+      current-search: "&7Current search: &f{0}"
+      sort: "&7Sort: &e{0}"
+    search-button:
+      name: "&eSearch Items"
+      lore1: "&7Current: &f{0}"
+      lore2: "&7Click to search by item name"
+    clear-search-button:
+      name: "&cClear Search"
+      lore: "&7Click to show all items"
+    refresh-button:
+      name: "&aRefresh"
+      lore: "&7Click to reload marketplace data"
+    sort-button:
+      name: "&eSort: {0}"
+      lore1: "&7Click to change sorting"
+      lore2: "&7• Distance (nearest first)"
+      lore3: "&7• Name A-Z / Z-A"
+      lore4: "&7• Price Low / High"
+      lore5: "&7• Quantity"
+    affordable-only-button:
+      name-on: "&aAffordable Only"
+      name-off: "&cShow All Items"
+      lore1: "&7Click to toggle affordable filter"
+      lore2-on: "&7Showing only items you can afford"
+      lore2-off: "&7Showing all items"
+    popular-items-button:
+      name: "&ePopular Items"
+      lore: "&7Show most commonly sold items"
+    nearby-shops-button:
+      name: "&eNearby Shops"
+      lore: "&7Show shops within 1000 blocks"
+    no-results:
+      title: "&cNo Items Found"
+      no-items-for-sale: "&7No items are currently for sale"
+      no-items-match: "&7No items match: &f{0}"
+      try: "&7Try:"
+      try-clear-search: "&7• Clearing your search"
+      try-change-filters: "&7• Changing filters"
+      try-refresh: "&7• Refreshing the data"
+    item:
+      quantity: "&7Quantity: &f{0}"
+      price: "&7Price: &a{0}"
+      seller: "&7Seller: &b{0}"
+      location: "&7Location: &f{0}"
+      world: "&7World: &f{0}"
+      distance: "&7Distance: &e{0}"
+      description: "&7Description:"
+      own-shop-warning: "&6⚠ This is your own shop"
+      own-shop-manage: "&7Click to manage your shop"
+      can-afford: "&a✓ You can afford this!"
+      click-to-visit: "&eClick to visit shop"
+      cannot-afford: "&c✗ Cannot afford"
+      needs: "&7Need: &f{0}"
+      click-to-visit-anyway: "&eClick to visit anyway"
+    pagination:
+      showing-items: "&7Showing {0} of {1} items"
+      navigation-info:
+        title: "&7Navigation"
+        lore1: "&7Use arrows to browse pages"
+        lore2: "&7{0} total results"
+    sort:
+      distance: "Distance"
+      name-az: "Name A-Z"
+      name-za: "Name Z-A"
+      price-low: "Price Low"
+      price-high: "Price High"
+      quantity: "Quantity"
+    showing-popular-items: "&aShowing popular items! Found {0} results."
+    search-cleared: "&aSearch cleared! Showing all {0} items."
+    sorting-by: "&aSorting by: &e{0}"
+    affordable-only-status: "affordable items only"
+    all-items-status: "all items"
+    showing-filter-status: "&aShowing {0}! Found {1} results."
+    showing-nearby-shops: "&aShowing nearby shops! Found {0} items within 1000 blocks."
+    marketplace-refreshed: "&aMarketplace refreshed! Found {0} total items."
+    opening-own-shop: "&aOpening your shop management!"
+  shopbrowse:
+    title: "&4&l{0}'s Shop"
+    shop-info:
+      title: "&6Shop Owner: &e{0}"
+      location: "&7Location: &f{0}"
+      world: "&7World: &f{0}"
+      items-for-sale: "&7Items for sale: &f{0}"
+      status: "&7Status: &aOpen for business!"
+    no-items:
+      title: "&cNo items for sale"
+      lore1: "&7This shop currently has no items available."
+      lore2: "&7Check back later!"
+    item:
+      quantity: "&7Quantity: &f{0}"
+      price: "&7Price: &a{0}"
+      description: "&7Description:"
+      can-afford:
+        buy-one: "&aLeft-click to buy 1"
+        buy-all: "&aShift-click to buy all ({0})"
+        buy-custom: "&aRight-click to buy custom amount"
+      cannot-afford:
+        title: "&cYou cannot afford this item!"
+        needs: "&7You need: &f{0}"
+    shopping-at: "&7Shopping at {0}'s Shop"
+    total-items: "&7Total items: &f{0}"
+    shop-details:
+      title: "&eShop Details"
+      owner: "&7Owner: &f{0}"
+      location: "&7Location: &f{0}"
+      world: "&7World: &f{0}"
+      created: "&7Created: &f{0} ago"
+    error:
+      cannot-afford: "&cYou cannot afford this item!"
+      needs: "&7You need: &f{0}"
+  searchinput:
+    prompt: "&eEnter your search query in chat."
+    cancel-instruction: "&7Type 'cancel' to go back."
+    search-cancelled: "&cSearch cancelled. Opening marketplace..."
+    searching-for: "&aSearching for: &e{0}"
+    showing-all-items: "&aShowing all items in marketplace."
+  shopselection:
+    title: "&4&lSelect Shop to Manage"
+    header:
+      title: "&6Remote Shop Management"
+      total-shops: "&7Total shops: &e{0}"
+      lore1: "&7Click on a shop to manage it remotely"
+      lore2: "&7You can manage shops from anywhere!"
+    no-shops:
+      title: "&cNo Shops Found"
+      lore1: "&7You don't have any shops yet!"
+      lore2: "&7Create a shop first with &e/shop create"
+    item:
+      name: "&e{0}. Shop at {1}"
+      status: "&7Status: {0}"
+      world: "&7World: &f{0}"
+      items-for-sale: "&7Items for sale: &e{0}"
+      total-stock: "&7Total stock: &e{0}"
+      revenue-waiting: "&7Revenue: &a{0} items waiting"
+      no-revenue: "&7Revenue: &7No revenue to collect"
+      created: "&7Created: &e{0} ago"
+      click-to-manage: "&eClick to manage this shop remotely"
+      manage-lore: "&7You can add items, set prices, collect revenue"
+    showing-shops: "&7Showing {0} of {1} shops"
+    your-shops:
+      title: "&7Your Shops"
+      total: "&7Total: {0} shops"
+      lore: "&7Click any shop to manage it"
+    help-button:
+      title: "&eHelp"
+      lore1: "&7Remote shop management allows you to:"
+      lore2: "&7• Add and remove items"
+      lore3: "&7• Set prices and descriptions"
+      lore4: "&7• Collect revenue"
+      lore5: "&7• Activate/deactivate shops"
+      lore6: "&7• All from any distance!"
+    opening-management: "&aOpening remote management for shop at {0}"
+  priceselection:
+    title: "&4&lSelect Price Items"
+    instructions:
+      title: "&6Price Selection"
+      lore1: "&7Click on materials to add them as price items"
+      lore2: "&7Use +/- buttons to adjust quantities"
+      lore3: "&7Click 'Done' when finished"
+    material:
+      lore1: "&7Click to add as price item"
+      lore2: "&7Current in price: &f{0}"
+    current-price:
+      title: "&6Current Price Items"
+      lore: "&7Items that will be required as payment:"
+    current-price-item:
+      name: "&e{0}x {1}"
+      lore1: "&7Left click: +1"
+      lore2: "&7Right click: -1"
+      lore3: "&7Shift+Right click: Remove"
+    done-button:
+      lore: "&7Click to confirm price selection"
+  purchaseamount:
+    title: "Select Purchase Amount"
+    item-name: "&eItem: &f{0}"
+    available: "&7Available: &f{0}"
+    price-per-item: "&7Price/item: &a{0}"
+    total-cost: "&7Total Cost: &a{0}"
+    seller: "&7Seller: &b{0}"
+    decrease-10:
+      name: "&c-10"
+      lore: "&7Decrease amount by 10"
+    decrease-1:
+      name: "&c-1"
+      lore: "&7Decrease amount by 1"
+    amount-display: "&eAmount: {0}"
+    max-available: "&7Max available: {0}"
+    increase-1:
+      name: "&a+1"
+      lore: "&7Increase amount by 1"
+    increase-10:
+      name: "&a+10"
+      lore: "&7Increase amount by 10"
+    max-button:
+      name: "&aMax ({0})"
+      lore: "&7Set amount to max available"
+    purchase-button:
+      name: "&aPurchase"
+      lore1: "&7Buy {0}x {1}"
+      lore2: "&7For a total of: {0}"
+      confirm-lore: "&eClick to confirm purchase"
+      not-enough-lore: "&cYou don't have the required items."
+    cannot-afford-button:
+      name: "&cCannot Afford"
+    error:
+      cannot-afford: "&cYou cannot afford this purchase."
+      needs: "&7You need: {0}"
+      not-enough-stock: "&cThe shop does not have enough stock for this amount."
+    purchase-success:
+      title: "&aPurchase successful!"
+      summary: "&7You bought {0}x {1}."

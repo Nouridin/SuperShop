@@ -16,9 +16,14 @@
 
 package me.nouridin.supershop;
 
-import me.nouridin.Search.SearchBookCommand;
-import me.nouridin.Search.SearchBookListener;
-import me.nouridin.Search.SearchManager;
+import me.nouridin.supershop.commands.LanguageCommand;
+import me.nouridin.supershop.commands.SearchBookCommand;
+import me.nouridin.supershop.listeners.ChestInteractListener;
+import me.nouridin.supershop.listeners.SearchBookListener;
+import me.nouridin.supershop.managers.*;
+import me.nouridin.supershop.commands.ShopCommand;
+import me.nouridin.supershop.util.MessageUtils;
+import me.nouridin.supershop.util.UpdateChecker;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class supershop extends JavaPlugin {
@@ -30,22 +35,36 @@ public final class supershop extends JavaPlugin {
     private DatabaseManager databaseManager;
     private GUIManager guiManager;
     private ChatInputManager chatInputManager;
+    private LocaleManager localeManager;
+    private MessageUtils messageUtils;
     
     @Override
     public void onEnable() {
         instance = this;
         
-        // Initialize managers
+        // Initialize MessageUtils first, as other managers might depend on it for console messages
+        messageUtils = new MessageUtils(this); 
+
+        // Initialize other managers
         configManager = new ConfigManager(this);
         databaseManager = new DatabaseManager(this);
+        localeManager = new LocaleManager(this); 
+        
+        // Set the LocaleManager in MessageUtils now that both are initialized
+        messageUtils.setLocaleManager(localeManager);
+
         shopManager = new ShopManager(this);
         searchManager = new SearchManager(this);
         guiManager = new GUIManager(this);
         chatInputManager = new ChatInputManager(this);
         
+        // Load player locales from database
+        localeManager.setPlayerLocaleMap(databaseManager.loadAllPlayerLocales());
+
         // Register commands
         getCommand("shop").setExecutor(new ShopCommand(this));
         getCommand("searchbook").setExecutor(new SearchBookCommand(this));
+        getCommand("superlang").setExecutor(new LanguageCommand(this));
         
         // Register listeners
         getServer().getPluginManager().registerEvents(new ChestInteractListener(this), this);
@@ -68,6 +87,8 @@ public final class supershop extends JavaPlugin {
             shopManager.saveAllShops();
         }
         if (databaseManager != null) {
+            // Save all player locales before closing connection
+            localeManager.getPlayerLocaleMap().forEach((uuid, locale) -> databaseManager.savePlayerLocale(uuid, locale));
             databaseManager.closeConnection();
         }
         getLogger().info("Super Shop has been disabled!");
@@ -99,5 +120,13 @@ public final class supershop extends JavaPlugin {
 
     public ChatInputManager getChatInputManager() {
         return chatInputManager;
+    }
+
+    public LocaleManager getLocaleManager() {
+        return localeManager;
+    }
+
+    public MessageUtils getMessageUtils() {
+        return messageUtils;
     }
 }
