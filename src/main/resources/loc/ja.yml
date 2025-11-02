@@ -1,0 +1,561 @@
+# 日本語ローカライズファイル
+
+# 一般
+none: "なし"
+done: "&a完了"
+free: "無料"
+
+# 一般的なコマンドメッセージ
+command-player-only: "&cこのコマンドはプレイヤーのみ実行できます。"
+player-not-found: "&cプレイヤーが見つかりません。"
+
+# 言語コマンドメッセージ
+language:
+  current: "&a現在の言語: &e{0}"
+  available: "&a利用可能な言語: &e{0}"
+  usage: "&a使用法: /superlang <言語>"
+  not-available: "&c言語 '&e{0}&c' は利用できません。"
+  set-success: "&a言語を &e{0}&a に設定しました。"
+
+# 時間単位
+time-unit-day: "日"
+time-unit-days: "日"
+time-unit-hour: "時間"
+time-unit-hours: "時間"
+time-unit-minute: "分"
+time-unit-minutes: "分"
+time-unit-second: "秒"
+time-unit-seconds: "秒"
+
+# ヘッダー/フッター
+header-separator: "="
+header-title-color: "&e"
+plugin-prefix: "&6[&eSuperShop&6] "
+footer-separator: "="
+
+# ショップマネージャーとコアロジック
+shop:
+  not-found: "&cショップが見つかりません。"
+  not-owner: "&cあなたはこのショップのオーナーではありません。"
+  loaded-from-database: "&aデータベースから {0} 個のショップをロードしました。"
+  saved-to-database: "&aデータベースに {0} 個のショップを保存しました。"
+  create:
+    success: "&aショップを {0} に正常に作成しました！"
+    no-permission: "&cショップを作成する権限がありません。"
+    not-looking-at-chest: "&cショップを作成するにはチェストを見ていなければなりません。"
+    already-exists: "&cこの場所にはすでにショップがあります。"
+    max-shops-reached: "&cショップの最大数 ({0}) に達しました。"
+    failed: "&cショップの作成に失敗しました。"
+  created:
+    success: "&aショップを正常に作成しました！"
+    manage-tip: "&a&e/shop manage&a を使用してアイテムを追加し、新しいショップを管理してください。"
+    info-tip: "&aチェストを見ながら &e/shop info&a を使用して詳細を確認してください。"
+  remove:
+    not-owner: "&cあなたはこのショップのオーナーではありません。"
+    success: "&aショップを正常に削除しました。"
+    items-returned: "&aショップからのアイテムはインベントリに戻されました。"
+    no-items-to-return: "&7返却するアイテムや収益はありません。"
+    items-added-to-inventory: "&aインベントリに {0} 個のアイテムを追加しました。"
+    items-dropped: "&eインベントリがいっぱいでした。 {0} 個のアイテムを地面に落としました。"
+    not-looking-at-chest: "&cショップを削除するにはチェストを見ていなければなりません。"
+  force-remove:
+    no-permission: "&cショップを強制的に削除するにはOPである必要があります。"
+    items-not-returned: "&e注意: アイテムはオーナーに返却されませんでした。"
+    not-looking-at-chest: "&cショップを強制的に削除するにはチェストを見ていなければなりません。"
+  list:
+    no-shops: "&cまだショップがありません。&e/shop create&c を使用して開始してください。"
+    header: "あなたのショップ"
+    item: "&e{0}. &a場所: &f{1} &aステータス: &f{2} &aアイテム: &f{3} &7(/shop manage {4} で管理)"
+    manage-tip: "&a&e/shop manage <番号>&a を使用してショップを管理してください。"
+    create-tip: "&a&e/shop create&a を使用して最初のショップを作成してください！"
+  status:
+    active: "&aアクティブ"
+    inactive: "&c非アクティブ"
+  manage:
+    invalid-number: "&c無効なショップ番号です。1から {0} までの番号を選択してください。"
+    list-tip: "&c&e/shop list&c を使用してショップ番号を確認してください。"
+    opening-remote: "&a{0} のショップのリモート管理を開いています..."
+    invalid-number-format: "&c無効な数値形式です。数値を入力してください。"
+  info:
+    not-looking-at-chest: "&c情報を表示するにはチェストを見ていなければなりません。"
+    header: "ショップ情報"
+    owner: "&aオーナー: &f{0}"
+    location: "&a場所: &f{0}"
+    world: "&aワールド: &f{0}"
+    items-for-sale: "&a販売中のアイテム: &f{0}"
+    status: "&aステータス: &f{0}"
+    created: "&a作成日時: &f{0} 前"
+  give:
+    no-permission: "&cこのコマンドを使用する権限がありません。"
+    received-self: "&aショップ検索ブックを受け取りました。"
+    given-other: "&a&e{0}&a にショップ検索ブックを渡しました。"
+    received-other: "&a&e{0}&a からショップ検索ブックを受け取りました。"
+  stats:
+    no-permission: "&cショップの統計を表示する権限がありません。"
+    header: "ショップ統計"
+    total-shops: "&a合計ショップ数: &f{0}"
+    active-shops: "&aアクティブなショップ数: &f{0}"
+    total-items: "&a販売中の合計アイテム数: &f{0}"
+  reload:
+    no-permission: "&cプラグインをリロードする権限がありません。"
+    success: "&aSuperShopを正常にリロードしました。"
+  help:
+    header: "SuperShop ヘルプ"
+    create: "&e/shop create&7 - 見ているチェストに新しいショップを作成します。"
+    remove: "&e/shop remove&7 - 見ているチェストのショップを削除します。"
+    list: "&e/shop list&7 - すべてのショップを一覧表示します。"
+    manage: "&e/shop manage [番号]&7 - ショップの管理GUIを開きます。"
+    info: "&e/shop info&7 - 見ているショップの情報を表示します。"
+    force-remove: "&c/shop force remove&7 - (OP) ショップを強制的に削除します。"
+    give: "&e/shop give [プレイヤー]&7 - プレイヤーにショップ検索ブックを渡します。"
+    stats: "&e/shop stats&7 - サーバー上のショップの統計を表示します。"
+    reload: "&e/shop reload&7 - プラグインの設定をリロードします。"
+  item:
+    added-success: "&aアイテムをショップに正常に追加しました。"
+    not-found: "&cそのアイテムはショップで見つかりませんでした。"
+    removed-success: "&aアイテムをショップから正常に削除しました。"
+    sold-out: "&eあなたのアイテム '&f{0}&e' は売り切れました！"
+  purchase:
+    item-unavailable: "&cこのアイテムは現在利用できないか、在庫切れです。"
+    insufficient-items: "&cこの購入に必要なアイテムがありません。"
+    success: "&a{0}x {1} を正常に購入しました！"
+  owner:
+    purchase-notification: "&e{0} &aがあなたのショップから {1}x {2} を購入しました！"
+    revenue-waiting: "&a新しい収益が待っています！ &e/shop manage&a を使用して回収してください。"
+  revenue:
+    no-revenue: "&c回収する収益がありません。"
+    collected: "&aショップの収益から {0} 個のアイテムを回収しました！"
+
+# リスナー
+listener:
+  chest-interact:
+    shop-inactive: "&cこのショップは現在非アクティブです！"
+    cannot-break-not-owner: "&cあなたのものではないショップチェストを壊すことはできません！"
+    shop-owner: "&7ショップオーナー: &e{0}"
+    force-remove-tip: "&7オペレーターの場合は '/shop force remove' を使用してください。"
+    shift-to-confirm-removal: "&cショップの削除を確認するには、壊すときにSHIFTを押してください！"
+    removal-warning: "&7これにより、ショップとすべてのアイテムが完全に削除されます。"
+    quick-info:
+      title: "&6&lクイックショップ情報"
+      items-for-sale: "&7販売中のアイテム: &e{0}"
+      total-stock: "&7合計在庫: &e{0}"
+      status: "&7ステータス: {0}"
+      last-updated: "&7最終更新: &e{0} 前"
+      manage-tip: "&7通常右クリックでショップを管理"
+  search-book:
+    disabled: "&c検索ブック機能は現在無効です！"
+    no-permission: "&c検索ブックを使用する権限がありません！"
+
+# 検索ブックアイテム
+searchbook:
+  item:
+    name: "&6ショップ検索ブック"
+    lore1: "&7右クリックでショップ検索メニューを開きます。"
+    lore2: "&7他のプレイヤーが販売しているアイテムを見つけよう！"
+    lore3: "&eどんな冒険者にも強力なツール！"
+    lore4: "&7SuperShop提供。"
+
+first-login-welcome: "&aSuperShopは他の言語をサポートしています！\n&aコマンドを使用してください: /superlang <en-es-fr-ru-uk-ja-de-pl-kr-br-tr>\n&aSuperShopを応援してくれてありがとう <3"
+
+# GUI翻訳
+gui:
+  available: "&a利用可能"
+  unavailable: "&c利用不可"
+  active: "&aアクティブ"
+  inactive: "&c非アクティブ"
+  activated: "アクティブ化済み"
+  deactivated: "非アクティブ化済み"
+  activate: "アクティブ化"
+  deactivate: "非アクティブ化"
+  previous-page: "&7← 前のページ"
+  next-page: "&7次のページ →"
+  page-info: "&7{1} ページ中 {0} ページ"
+  page-info-short: "&7{1} ページ中 {0} ページ"
+  done: "&a完了"
+  free: "無料"
+  additem:
+    title: "ショップにアイテムを追加"
+    instructions:
+      title: "&e&l説明"
+      line1: "&71. 販売したいアイテムを指定されたスロットに置きます。"
+      line2: "&72. 価格選択エリアを使用して価格を設定します。"
+      line3: "&73. 'アイテムを追加' ボタンをクリックして確定します。"
+    item-placeholder:
+      name: "&7販売するアイテム"
+      lore: "&f販売したいアイテムをここに置いてください。"
+    price-placeholder:
+      name: "&7価格スロット {0}"
+      lore: "&f価格の一部として設定するアイテムをここに置いてください。"
+    set-price-button:
+      name: "&6価格を設定"
+      lore1: "&7インベントリを開いて"
+      lore2: "&7価格として設定するアイテムを選択します。"
+      lore3: "&7現在の価格アイテム: &e{0}"
+    clear-price-button:
+      name: "&c価格をクリア"
+      lore: "&7すべての価格アイテムを削除するにはクリックします。"
+    description-button:
+      name: "&b説明を設定"
+      lore: "&7現在: &f{0}"
+      lore2: "&7アイテムの説明を設定するにはクリックします。"
+    add-button:
+      name: "&aアイテムをショップに追加"
+      lore: "&7このアイテムをショップに追加するにはクリックします。"
+    description:
+      prompt: "&aチャットでアイテムの説明を入力してください。中止するには 'cancel' と入力してください。"
+      current: "&a現在の説明: &f{0}"
+      coming-soon: "&e説明機能は近日公開予定です！管理GUIを開いています..."
+    error:
+      no-item-selected: "&c販売するアイテムが選択されていません。"
+      no-price-set: "&cアイテムの価格が設定されていません。"
+      non-stackable: "&cスタックできないアイテムのスタックを販売することはできません。"
+      quantity-too-high: "&c数量が多すぎます。最大スタックサイズは64です。"
+      not-enough-items: "&cインベントリにそのアイテムが十分にありません。"
+  edititem:
+    title: "ショップアイテムを編集"
+    editing-title: "&e&l編集中: &f{0}"
+    original-quantity: "&7元の数量: &f{0}"
+    current-quantity: "&7現在の数量: &f{0}"
+    status: "&7ステータス: {0}"
+    decrease-1:
+      name: "&c-1"
+      lore: "&7数量を1減らす。"
+    decrease-10:
+      name: "&c-10"
+      lore: "&7数量を10減らす。"
+    quantity-display: "&e数量: {0}"
+    increase-1:
+      name: "&a+1"
+      lore: "&7数量を1増やす。"
+    increase-10:
+      name: "&a+10"
+      lore: "&7数量を10増やす。"
+    price-placeholder:
+      name: "&7価格スロット {0}"
+      lore: "&f価格の一部として設定するアイテムをここに置いてください。"
+    clear-price-button:
+      name: "&c価格をクリア"
+      lore: "&7すべての価格アイテムを削除するにはクリックします。"
+    description-button:
+      name: "&b説明を編集"
+      lore: "&7現在: &f{0}"
+      lore2: "&7アイテムの説明を編集するにはクリックします。"
+    make-unavailable: "&c利用不可にする"
+    make-available: "&a利用可能にする"
+    toggle-availability:
+      lore: "&7アイテムの利用可能性を切り替えるにはクリックします。"
+    save-button:
+      name: "&a変更を保存"
+      lore: "&7変更を保存するにはクリックします。"
+    remove-button:
+      name: "&cアイテムを削除"
+      lore1: "&7このアイテムを完全に削除するにはクリックします"
+      lore2: "&7ショップから。"
+    availability-toggled: "&aアイテムの利用可能性が切り替わりました。"
+    description:
+      prompt: "&aチャットで新しい説明を入力してください。中止するには 'cancel' と入力してください。"
+      current: "&a現在の説明: &f{0}"
+      coming-soon: "&e説明機能は近日公開予定です！編集GUIを再度開いています..."
+    item-updated-success: "&aアイテムを正常に更新しました。"
+    item-returned-to-inventory: "&aアイテムとその在庫はインベントリに戻されました。"
+    error:
+      no-inventory-space: "&cアイテムを返却できません。インベントリがいっぱいです！"
+      min-quantity-1: "&c数量は1以上である必要があります。"
+      non-stackable: "&cこのアイテムはスタックできません。"
+      remove-item-failed: "&cインベントリからアイテムを削除できませんでした。"
+      not-enough-items-to-increase: "&c在庫を増やすのに十分なアイテムがインベントリにありません。"
+      remove-required-items-failed: "&cインベントリから必要なアイテムを削除できませんでした。"
+      not-enough-items-to-add: "&c追加するアイテムが十分にありません。"
+      no-price-set: "&cアイテムの価格を設定する必要があります。"
+      not-enough-items-to-set-quantity: "&c警告: 数量を {0} に設定しましたが、インベントリには {1} しかありません。"
+      quantity-too-high: "&c数量が多すぎます。最大スタックサイズは64です。"
+  shopmanagement:
+    title: "&4&lショップ管理"
+    shop-info:
+      title: "&6ショップ情報"
+      location: "&7場所: &f{0}"
+      world: "&7ワールド: &f{0}"
+      items: "&7アイテム: &f{0}"
+      status: "&7ステータス: {0}"
+      revenue: "&7収益: {0}"
+      revenue-waiting: "&e{0} スタック待機中"
+    add-item-button:
+      name: "&aアイテムを追加"
+      lore1: "&7インベントリからアイテムを追加するにはクリックします"
+      lore2: "&7このショップで販売する"
+    deactivate-shop-button:
+      name: "&cショップを非アクティブ化"
+    activate-shop-button:
+      name: "&aショップをアクティブ化"
+    toggle-status-button:
+      lore: "&7このショップを {0} するにはクリックします"
+    collect-revenue-button:
+      name: "&e収益を回収"
+      lore1: "&7&e{0} スタック &7待機中"
+      lore2: "&7合計アイテム: &e{0}"
+      lore3: "&7すべての収益を回収するにはクリックします！"
+    no-revenue-button:
+      name: "&7収益なし"
+      lore1: "&7まだ回収する収益はありません"
+      lore2: "&7顧客がアイテムを購入するとここに収益が表示されます"
+      lore3: "&7あなたのショップから"
+    remove-shop-button:
+      name: "&cショップを削除"
+      lore1: "&7このショップを完全に削除するにはクリックします"
+      lore2: "&7すべてのアイテムと収益はあなたに返却されます"
+      lore3: "&c&l警告: この操作は即時です！"
+      lore4: "&eショップを完全に削除するには一度クリックします"
+    no-items:
+      title: "&7ショップにアイテムがありません"
+      lore: "&7'アイテムを追加' をクリックしてアイテムの販売を開始してください！"
+    item:
+      quantity: "&7数量: &f{0}"
+      price: "&7価格: &a{0}"
+      status: "{0}"
+      description: "&7説明:"
+      left-click: "&e左クリックで編集"
+      right-click: "&e右クリックで削除"
+      shift-click: "&eShift-クリックで利用可能性を切り替え"
+    shop-status-changed: "&aショップ {0} 成功しました！"
+    error:
+      no-revenue: "&c回収する収益がありません！"
+    shop-removed:
+      success: "&aショップを正常に削除しました！"
+      items-in-chest: "&7アイテムと収益はチェストとインベントリに保存されました。"
+      error:
+        failed-to-remove: "&cショップの削除に失敗しました。代替方法を試しています..."
+        chest-not-found: "&eショップの場所にチェストが見つかりません。アイテムを直接返却します。"
+        failed-to-remove-from-system: "&cシステムからショップを削除できませんでした！"
+      success-no-items: "&aショップを正常に削除しました！返却するアイテムはありません。"
+      items-returned: "&aインベントリに {0} 個のアイテムを返却しました。"
+      items-dropped: "&e{0} 個のアイテムを地面に落としました (インベントリがいっぱいでした)。"
+      pickup-items: "&7すぐに拾ってください！"
+      no-items-to-return: "&7返却するアイテムはありません。"
+    item-marked-as: "&aアイテムを {0} としてマークしました！"
+    item-returned-to-inventory: "&aアイテムがインベントリに戻されました！"
+  search:
+    title: "&4&lマーケットプレイスブラウザ"
+    all-items: "すべてのアイテム"
+    popular-items-search-query: "人気アイテム"
+    nearby-shops-search-query: "近くのショップ"
+    header:
+      title: "&6マーケットプレイスブラウザ"
+      total-items: "&7合計アイテム数: &e{0}"
+      filtered-results: "&7フィルタリング結果: &e{0}"
+      current-search: "&7現在の検索: &f{0}"
+      sort: "&7ソート: &e{0}"
+    search-button:
+      name: "&eアイテムを検索"
+      lore1: "&7現在: &f{0}"
+      lore2: "&7アイテム名で検索するにはクリックします"
+    clear-search-button:
+      name: "&c検索をクリア"
+      lore: "&7すべてのアイテムを表示するにはクリックします"
+    refresh-button:
+      name: "&a更新"
+      lore: "&7マーケットプレイスデータをリロードするにはクリックします"
+    sort-button:
+      name: "&eソート: {0}"
+      lore1: "&7ソートを変更するにはクリックします"
+      lore2: "&7• 距離 (近い順)"
+      lore3: "&7• 名前 A-Z / Z-A"
+      lore4: "&7• 価格 安い / 高い"
+      lore5: "&7• 数量"
+    affordable-only-button:
+      name-on: "&a購入可能なもののみ"
+      name-off: "&cすべてのアイテムを表示"
+      lore1: "&7購入可能フィルターを切り替えるにはクリックします"
+      lore2-on: "&7購入可能なアイテムのみ表示中"
+      lore2-off: "&7すべてのアイテムを表示中"
+    popular-items-button:
+      name: "&e人気アイテム"
+      lore: "&7最も一般的に販売されているアイテムを表示"
+    nearby-shops-button:
+      name: "&e近くのショップ"
+      lore: "&71000ブロック以内のショップを表示"
+    no-results:
+      title: "&cアイテムが見つかりません"
+      no-items-for-sale: "&7現在販売中のアイテムはありません"
+      no-items-match: "&7一致するアイテムはありません: &f{0}"
+      try: "&7試してください:"
+      try-clear-search: "&7• 検索をクリアする"
+      try-change-filters: "&7• フィルターを変更する"
+      try-refresh: "&7• データを更新する"
+    item:
+      quantity: "&7数量: &f{0}"
+      price: "&7価格: &a{0}"
+      seller: "&b{0}"
+      location: "&7場所: &f{0}"
+      world: "&7ワールド: &f{0}"
+      distance: "&7距離: &e{0}"
+      description: "&7説明:"
+      own-shop-warning: "&6⚠ これはあなたのショップです"
+      own-shop-manage: "&7ショップを管理するにはクリックします"
+      can-afford: "&a✓ 購入できます！"
+      click-to-visit: "&eショップを訪問するにはクリックします"
+      cannot-afford: "&c✗ 購入できません"
+      needs: "&7必要: &f{0}"
+      click-to-visit-anyway: "&eとにかく訪問するにはクリックします"
+    pagination:
+      showing-items: "&7{1} 個中 {0} 個のアイテムを表示中"
+      navigation-info:
+        title: "&7ナビゲーション"
+        lore1: "&7矢印を使用してページを閲覧"
+        lore2: "&7合計 {0} 件の結果"
+    sort:
+      distance: "距離"
+      name-az: "名前 A-Z"
+      name-za: "名前 Z-A"
+      price-low: "価格 安い"
+      price-high: "価格 高い"
+      quantity: "数量"
+    showing-popular-items: "&a人気アイテムを表示中！ {0} 件の結果が見つかりました。"
+    search-cleared: "&a検索をクリアしました！すべての {0} 個のアイテムを表示中。"
+    sorting-by: "&aソート順: &e{0}"
+    affordable-only-status: "購入可能なアイテムのみ"
+    all-items-status: "すべてのアイテム"
+    showing-filter-status: "&a{0} を表示中！ {1} 件の結果が見つかりました。"
+    showing-nearby-shops: "&a近くのショップを表示中！1000ブロック以内に {0} 個のアイテムが見つかりました。"
+    marketplace-refreshed: "&aマーケットプレイスを更新しました！合計 {0} 個のアイテムが見つかりました。"
+    opening-own-shop: "&aあなたのショップ管理を開いています！"
+  shopbrowse:
+    title: "&4&l{0} のショップ"
+    shop-info:
+      title: "&6ショップオーナー: &e{0}"
+      location: "&7場所: &f{0}"
+      world: "&7ワールド: &f{0}"
+      items-for-sale: "&7販売中のアイテム: &f{0}"
+      status: "&7ステータス: &a営業中！"
+    no-items:
+      title: "&c販売中のアイテムはありません"
+      lore1: "&7このショップには現在利用可能なアイテムがありません。"
+      lore2: "&7後でまた確認してください！"
+    item:
+      quantity: "&7数量: &f{0}"
+      price: "&7価格: &a{0}"
+      description: "&7説明:"
+      can-afford:
+        buy-one: "&a左クリックで1つ購入"
+        buy-all: "&aShift-クリックですべて購入 ({0})"
+        buy-custom: "&a右クリックでカスタム数量を購入"
+      cannot-afford:
+        title: "&cこのアイテムは購入できません！"
+        needs: "&7必要: &f{0}"
+    shopping-at: "&7{0} のショップで買い物中"
+    total-items: "&7合計アイテム数: &f{0}"
+    shop-details:
+      title: "&eショップ詳細"
+      owner: "&7オーナー: &f{0}"
+      location: "&7場所: &f{0}"
+      world: "&7ワールド: &f{0}"
+      created: "&7作成日時: &f{0} 前"
+    error:
+      cannot-afford: "&cこのアイテムは購入できません！"
+      needs: "&7必要: &f{0}"
+  searchinput:
+    prompt: "&eチャットで検索クエリを入力してください。"
+    cancel-instruction: "&7戻るには 'cancel' と入力してください。"
+    search-cancelled: "&c検索をキャンセルしました。マーケットプレイスを開いています..."
+    searching-for: "&a検索中: &e{0}"
+    showing-all-items: "&aマーケットプレイスのすべてのアイテムを表示中。"
+  shopselection:
+    title: "&4&l管理するショップを選択"
+    header:
+      title: "&6リモートショップ管理"
+      total-shops: "&7合計ショップ数: &e{0}"
+      lore1: "&7ショップをクリックしてリモートで管理します"
+      lore2: "&7どこからでもショップを管理できます！"
+    no-shops:
+      title: "&cショップが見つかりません"
+      lore1: "&7まだショップがありません！"
+      lore2: "&7まず &e/shop create&a でショップを作成してください"
+    item:
+      name: "&e{0}. {1} のショップ"
+      status: "{0}"
+      world: "&7ワールド: &f{0}"
+      items-for-sale: "&7販売中のアイテム: &e{0}"
+      total-stock: "&7合計在庫: &e{0}"
+      revenue-waiting: "&7収益: &a{0} 個のアイテムが待機中"
+      no-revenue: "&7収益: &7回収する収益なし"
+      created: "&7作成日時: &e{0} 前"
+      click-to-manage: "&eこのショップをリモートで管理するにはクリックします"
+      manage-lore: "&7アイテムの追加と削除、価格と説明の設定、収益の回収ができます"
+    showing-shops: "&7{1} 個中 {0} 個のショップを表示中"
+    your-shops:
+      title: "&7あなたのショップ"
+      total: "&7合計: {0} ショップ"
+      lore: "&7ショップをクリックして管理します"
+    help-button:
+      title: "&eヘルプ"
+      lore1: "&7リモートショップ管理では以下が可能です:"
+      lore2: "&7• アイテムの追加と削除"
+      lore3: "&7• 価格と説明の設定"
+      lore4: "&7• 収益の回収"
+      lore5: "&7• ショップのアクティブ化/非アクティブ化"
+      lore6: "&7• どこからでも！"
+    opening-management: "&a{0} のショップのリモート管理を開いています"
+  priceselection:
+    title: "&4&l価格アイテムを選択"
+    instructions:
+      title: "&6価格選択"
+      lore1: "&7材料をクリックして価格アイテムとして追加します"
+      lore2: "&7+/- ボタンを使用して数量を調整します"
+      lore3: "&7完了したら '完了' をクリックします"
+    material:
+      lore1: "&7価格アイテムとして追加するにはクリックします"
+      lore2: "&7現在の価格: &f{0}"
+    current-price:
+      title: "&6現在の価格アイテム"
+      lore: "&7支払いとして必要となるアイテム:"
+    current-price-item:
+      name: "&e{0}x {1}"
+      lore1: "&7左クリック: +1"
+      lore2: "&7右クリック: -1"
+      lore3: "&7Shift+右クリック: 削除"
+    done-button:
+      lore: "&7価格選択を確定するにはクリックします"
+  purchaseamount:
+    title: "購入数量を選択"
+    item-name: "&eアイテム: &f{0}"
+    available: "&7利用可能: &f{0}"
+    price-per-item: "&7アイテムあたりの価格: &a{0}"
+    total-cost: "&7合計費用: &a{0}"
+    seller: "&b{0}"
+    decrease-10:
+      name: "&c-10"
+      lore: "&7数量を10減らす"
+    decrease-1:
+      name: "&c-1"
+      lore: "&7数量を1減らす"
+    amount-display: "&e数量: {0}"
+    max-available: "&7最大利用可能: {0}"
+    increase-1:
+      name: "&a+1"
+      lore: "&7数量を1増やす"
+    increase-10:
+      name: "&a+10"
+      lore: "&7数量を10増やす"
+    max-button:
+      name: "&a最大 ({0})"
+      lore: "&7数量を最大利用可能に設定"
+    purchase-button:
+      name: "&a購入"
+      lore1: "&7{0}x {1} を購入"
+      lore2: "&7合計: {0}"
+      confirm-lore: "&e購入を確定するにはクリックします"
+      not-enough-lore: "&c必要なアイテムがありません。"
+    cannot-afford-button:
+      name: "&c購入できません"
+    error:
+      cannot-afford: "&cこの購入はできません。"
+      needs: "&7必要: {0}"
+      not-enough-stock: "&cショップにはこの数量の在庫がありません。"
+    purchase-success:
+      title: "&a購入成功！"
+      summary: "&7{0}x {1} を購入しました。"
+  close-button:
+    name: "&c閉じる"
+    lore: "&7メニューを閉じるにはクリックします。"
+  back-button:
+    name: "&e戻る"
+    lore: "&7前のメニューに戻るにはクリックします。"

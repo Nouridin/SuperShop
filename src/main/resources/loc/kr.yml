@@ -1,0 +1,561 @@
+# 한국어 지역화 파일
+
+# 일반
+none: "없음"
+done: "&a완료"
+free: "무료"
+
+# 일반 명령어 메시지
+command-player-only: "&c이 명령어는 플레이어만 실행할 수 있습니다."
+player-not-found: "&c플레이어를 찾을 수 없습니다."
+
+# 언어 명령어 메시지
+language:
+  current: "&a현재 언어: &e{0}"
+  available: "&a사용 가능한 언어: &e{0}"
+  usage: "&a사용법: /superlang <언어>"
+  not-available: "&c언어 '&e{0}&c'는 사용할 수 없습니다."
+  set-success: "&a언어가 &e{0}&a(으)로 설정되었습니다."
+
+# 시간 단위
+time-unit-day: "일"
+time-unit-days: "일"
+time-unit-hour: "시간"
+time-unit-hours: "시간"
+time-unit-minute: "분"
+time-unit-minutes: "분"
+time-unit-second: "초"
+time-unit-seconds: "초"
+
+# 헤더/푸터
+header-separator: "="
+header-title-color: "&e"
+plugin-prefix: "&6[&eSuperShop&6] "
+footer-separator: "="
+
+# 상점 관리자 및 핵심 로직
+shop:
+  not-found: "&c상점을 찾을 수 없습니다."
+  not-owner: "&c당신은 이 상점의 주인이 아닙니다."
+  loaded-from-database: "&a데이터베이스에서 {0}개의 상점을 불러왔습니다."
+  saved-to-database: "&a데이터베이스에 {0}개의 상점을 저장했습니다."
+  create:
+    success: "&a상점이 {0}에 성공적으로 생성되었습니다!"
+    no-permission: "&c상점을 생성할 권한이 없습니다."
+    not-looking-at-chest: "&c상점을 생성하려면 상자를 보고 있어야 합니다."
+    already-exists: "&c이 위치에 이미 상점이 있습니다."
+    max-shops-reached: "&c최대 상점 수 ({0})에 도달했습니다."
+    failed: "&c상점 생성에 실패했습니다."
+  created:
+    success: "&a상점이 성공적으로 생성되었습니다!"
+    manage-tip: "&a&e/shop manage&a를 사용하여 아이템을 추가하고 새 상점을 관리하세요."
+    info-tip: "&a상자를 보면서 &e/shop info&a를 사용하여 세부 정보를 확인하세요."
+  remove:
+    not-owner: "&c당신은 이 상점의 주인이 아닙니다."
+    success: "&a상점이 성공적으로 제거되었습니다."
+    items-returned: "&a상점의 아이템이 인벤토리로 반환되었습니다."
+    no-items-to-return: "&7반환할 아이템이나 수익이 없습니다."
+    items-added-to-inventory: "&a인벤토리에 {0}개의 아이템을 추가했습니다."
+    items-dropped: "&e인벤토리가 가득 찼습니다. {0}개의 아이템을 땅에 떨어뜨렸습니다."
+    not-looking-at-chest: "&c상점을 제거하려면 상자를 보고 있어야 합니다."
+  force-remove:
+    no-permission: "&c상점을 강제로 제거하려면 OP여야 합니다."
+    items-not-returned: "&e참고: 아이템은 주인에게 반환되지 않았습니다."
+    not-looking-at-chest: "&c상점을 강제로 제거하려면 상자를 보고 있어야 합니다."
+  list:
+    no-shops: "&c아직 상점이 없습니다. &e/shop create&c를 사용하여 시작하세요."
+    header: "내 상점"
+    item: "&e{0}. &a위치: &f{1} &a상태: &f{2} &a아이템: &f{3} &7(/shop manage {4}로 관리)"
+    manage-tip: "&a&e/shop manage <번호>&a를 사용하여 상점을 관리하세요."
+    create-tip: "&a&e/shop create&a를 사용하여 첫 상점을 만드세요!"
+  status:
+    active: "&a활성"
+    inactive: "&c비활성"
+  manage:
+    invalid-number: "&c잘못된 상점 번호입니다. 1에서 {0} 사이의 숫자를 선택하세요."
+    list-tip: "&c&e/shop list&c를 사용하여 상점 번호를 확인하세요."
+    opening-remote: "&a{0}에 있는 상점의 원격 관리를 열고 있습니다..."
+    invalid-number-format: "&c잘못된 숫자 형식입니다. 숫자를 사용하세요."
+  info:
+    not-looking-at-chest: "&c정보를 보려면 상자를 보고 있어야 합니다."
+    header: "상점 정보"
+    owner: "&a소유자: &f{0}"
+    location: "&a위치: &f{0}"
+    world: "&a월드: &f{0}"
+    items-for-sale: "&a판매 중인 아이템: &f{0}"
+    status: "&a상태: &f{0}"
+    created: "&a생성일: &f{0} 전"
+  give:
+    no-permission: "&c이 명령어를 사용할 권한이 없습니다."
+    received-self: "&a상점 검색 책을 받았습니다."
+    given-other: "&a&e{0}&a에게 상점 검색 책을 주었습니다."
+    received-other: "&a&e{0}&a로부터 상점 검색 책을 받았습니다."
+  stats:
+    no-permission: "&c상점 통계를 볼 권한이 없습니다."
+    header: "상점 통계"
+    total-shops: "&a총 상점 수: &f{0}"
+    active-shops: "&a활성 상점 수: &f{0}"
+    total-items: "&a총 판매 아이템 수: &f{0}"
+  reload:
+    no-permission: "&c플러그인을 다시 로드할 권한이 없습니다."
+    success: "&aSuperShop이 성공적으로 다시 로드되었습니다."
+  help:
+    header: "SuperShop 도움말"
+    create: "&e/shop create&7 - 보고 있는 상자에 새 상점을 만듭니다."
+    remove: "&e/shop remove&7 - 보고 있는 상자의 상점을 제거합니다."
+    list: "&e/shop list&7 - 모든 상점을 나열합니다."
+    manage: "&e/shop manage [번호]&7 - 상점 중 하나의 관리 GUI를 엽니다."
+    info: "&e/shop info&7 - 보고 있는 상점의 정보를 보여줍니다."
+    force-remove: "&c/shop force remove&7 - (OP) 상점을 강제로 제거합니다."
+    give: "&e/shop give [플레이어]&7 - 플레이어에게 상점 검색 책을 줍니다."
+    stats: "&e/shop stats&7 - 서버의 상점 통계를 보여줍니다."
+    reload: "&e/shop reload&7 - 플러그인 구성을 다시 로드합니다."
+  item:
+    added-success: "&a아이템이 상점에 성공적으로 추가되었습니다."
+    not-found: "&c상점에서 해당 아이템을 찾을 수 없습니다."
+    removed-success: "&a아이템이 상점에서 성공적으로 제거되었습니다."
+    sold-out: "&e당신의 아이템 '&f{0}&e'이 매진되었습니다!"
+  purchase:
+    item-unavailable: "&c이 아이템은 더 이상 사용할 수 없거나 재고가 없습니다."
+    insufficient-items: "&c이 구매에 필요한 아이템이 부족합니다."
+    success: "&a{0}x {1}을(를) 성공적으로 구매했습니다!"
+  owner:
+    purchase-notification: "&e{0} &a이(가) 당신의 상점에서 {1}x {2}을(를) 구매했습니다!"
+    revenue-waiting: "&a새로운 수익이 기다리고 있습니다! &e/shop manage&a를 사용하여 수집하세요."
+  revenue:
+    no-revenue: "&c수집할 수익이 없습니다."
+    collected: "&a상점 수익에서 {0}개의 아이템을 수집했습니다!"
+
+# 리스너
+listener:
+  chest-interact:
+    shop-inactive: "&c이 상점은 현재 비활성 상태입니다!"
+    cannot-break-not-owner: "&c당신 소유가 아닌 상점 상자를 부술 수 없습니다!"
+    shop-owner: "&7상점 주인: &e{0}"
+    force-remove-tip: "&7운영자라면 '/shop force remove'를 사용하세요."
+    shift-to-confirm-removal: "&c상점 제거를 확인하려면 부술 때 SHIFT를 누르세요!"
+    removal-warning: "&7이것은 당신의 상점과 모든 아이템을 영구적으로 삭제합니다."
+    quick-info:
+      title: "&6&l빠른 상점 정보"
+      items-for-sale: "&7판매 중인 아이템: &e{0}"
+      total-stock: "&7총 재고: &e{0}"
+      status: "&7상태: {0}"
+      last-updated: "&7최종 업데이트: &e{0} 전"
+      manage-tip: "&7상점을 관리하려면 일반적으로 오른쪽 클릭"
+  search-book:
+    disabled: "&c검색 책 기능은 현재 비활성화되어 있습니다!"
+    no-permission: "&c검색 책을 사용할 권한이 없습니다!"
+
+# 검색 책 아이템
+searchbook:
+  item:
+    name: "&6상점 검색 책"
+    lore1: "&7상점 검색 메뉴를 열려면 오른쪽 클릭하세요."
+    lore2: "&7다른 플레이어가 판매하는 아이템을 찾아보세요!"
+    lore3: "&e모든 모험가를 위한 강력한 도구!"
+    lore4: "&7SuperShop 제공."
+
+first-login-welcome: "&aSuperShop은 다른 언어를 지원합니다!\n&a명령어 사용: /superlang <en-es-fr-ru-uk-ja-de-pl-kr-br-tr>\n&aSuperShop을 지원해 주셔서 감사합니다 <3"
+
+# GUI 번역
+gui:
+  available: "&a사용 가능"
+  unavailable: "&c사용 불가"
+  active: "&a활성"
+  inactive: "&c비활성"
+  activated: "활성화됨"
+  deactivated: "비활성화됨"
+  activate: "활성화"
+  deactivate: "비활성화"
+  previous-page: "&7← 이전 페이지"
+  next-page: "&7다음 페이지 →"
+  page-info: "&7{1} 페이지 중 {0} 페이지"
+  page-info-short: "&7{1} 페이지 중 {0} 페이지"
+  done: "&a완료"
+  free: "무료"
+  additem:
+    title: "상점에 아이템 추가"
+    instructions:
+      title: "&e&l지침"
+      line1: "&71. 판매하려는 아이템을 지정된 슬롯에 놓으세요."
+      line2: "&72. 가격 선택 영역을 사용하여 가격을 설정하세요."
+      line3: "&73. '아이템 추가' 버튼을 클릭하여 완료하세요."
+    item-placeholder:
+      name: "&7판매할 아이템"
+      lore: "&f판매하려는 아이템을 여기에 놓으세요."
+    price-placeholder:
+      name: "&7가격 슬롯 {0}"
+      lore: "&f가격을 구성할 아이템을 여기에 놓으세요."
+    set-price-button:
+      name: "&6가격 설정"
+      lore1: "&7인벤토리를 열고"
+      lore2: "&7가격을 설정할 아이템을 선택하려면 클릭하세요."
+      lore3: "&7현재 가격 아이템: &e{0}"
+    clear-price-button:
+      name: "&c가격 지우기"
+      lore: "&7모든 가격 아이템을 제거하려면 클릭하세요."
+    description-button:
+      name: "&b설명 설정"
+      lore: "&7현재: &f{0}"
+      lore2: "&7아이템 설명을 설정하려면 클릭하세요."
+    add-button:
+      name: "&a상점에 아이템 추가"
+      lore: "&7이 아이템을 상점에 추가하려면 클릭하세요."
+    description:
+      prompt: "&a채팅에 아이템 설명을 입력하세요. 취소하려면 'cancel'을 입력하세요."
+      current: "&a현재 설명: &f{0}"
+      coming-soon: "&e설명 기능은 곧 제공됩니다! 관리 GUI를 열고 있습니다..."
+    error:
+      no-item-selected: "&c판매할 아이템을 선택하지 않았습니다."
+      no-price-set: "&c아이템 가격을 설정하지 않았습니다."
+      non-stackable: "&c쌓을 수 없는 아이템 스택을 판매할 수 없습니다."
+      quantity-too-high: "&c수량이 너무 많습니다. 최대 스택 크기는 64입니다."
+      not-enough-items: "&c인벤토리에 해당 아이템이 충분하지 않습니다."
+  edititem:
+    title: "상점 아이템 편집"
+    editing-title: "&e&l편집 중: &f{0}"
+    original-quantity: "&7원래 수량: &f{0}"
+    current-quantity: "&7현재 수량: &f{0}"
+    status: "&7상태: {0}"
+    decrease-1:
+      name: "&c-1"
+      lore: "&7수량을 1 감소시킵니다."
+    decrease-10:
+      name: "&c-10"
+      lore: "&7수량을 10 감소시킵니다."
+    quantity-display: "&e수량: {0}"
+    increase-1:
+      name: "&a+1"
+      lore: "&7수량을 1 증가시킵니다."
+    increase-10:
+      name: "&a+10"
+      lore: "&7수량을 10 증가시킵니다."
+    price-placeholder:
+      name: "&7가격 슬롯 {0}"
+      lore: "&f가격을 구성할 아이템을 여기에 놓으세요."
+    clear-price-button:
+      name: "&c가격 지우기"
+      lore: "&7모든 가격 아이템을 제거하려면 클릭하세요."
+    description-button:
+      name: "&b설명 편집"
+      lore: "&7현재: &f{0}"
+      lore2: "&7아이템 설명을 편집하려면 클릭하세요."
+    make-unavailable: "&c사용 불가로 설정"
+    make-available: "&a사용 가능으로 설정"
+    toggle-availability:
+      lore: "&7아이템 사용 가능 여부를 전환하려면 클릭하세요."
+    save-button:
+      name: "&a변경 사항 저장"
+      lore: "&7변경 사항을 저장하려면 클릭하세요."
+    remove-button:
+      name: "&c아이템 제거"
+      lore1: "&7이 아이템을 영구적으로 제거하려면 클릭하세요."
+      lore2: "&7상점에서."
+    availability-toggled: "&a아이템 사용 가능 여부가 전환되었습니다."
+    description:
+      prompt: "&a채팅에 새 설명을 입력하세요. 취소하려면 'cancel'을 입력하세요."
+      current: "&a현재 설명: &f{0}"
+      coming-soon: "&e설명 기능은 곧 제공됩니다! 편집 GUI를 다시 열고 있습니다..."
+    item-updated-success: "&a아이템이 성공적으로 업데이트되었습니다."
+    item-returned-to-inventory: "&a아이템과 재고가 인벤토리로 반환되었습니다."
+    error:
+      no-inventory-space: "&c아이템을 반환할 수 없습니다. 인벤토리가 가득 찼습니다!"
+      min-quantity-1: "&c수량은 최소 1이어야 합니다."
+      non-stackable: "&c이 아이템은 쌓을 수 없습니다."
+      remove-item-failed: "&c인벤토리에서 아이템을 제거하지 못했습니다."
+      not-enough-items-to-increase: "&c재고를 늘릴 만큼 인벤토리에 이 아이템이 충분하지 않습니다."
+      remove-required-items-failed: "&c인벤토리에서 필요한 아이템을 제거하지 못했습니다."
+      not-enough-items-to-add: "&c추가할 아이템이 충분하지 않습니다."
+      no-price-set: "&c아이템 가격을 설정해야 합니다."
+      not-enough-items-to-set-quantity: "&c경고: 수량을 {0}으로 설정했지만 인벤토리에는 {1}개만 있습니다."
+      quantity-too-high: "&c수량이 너무 많습니다. 최대 스택 크기는 64입니다."
+  shopmanagement:
+    title: "&4&l상점 관리"
+    shop-info:
+      title: "&6상점 정보"
+      location: "&7위치: &f{0}"
+      world: "&7월드: &f{0}"
+      items: "&7아이템: &f{0}"
+      status: "&7상태: {0}"
+      revenue: "&7수익: {0}"
+      revenue-waiting: "&e{0} 스택 대기 중"
+    add-item-button:
+      name: "&a아이템 추가"
+      lore1: "&7인벤토리에서 아이템을 추가하려면 클릭하세요."
+      lore2: "&7이 상점에서 판매할"
+    deactivate-shop-button:
+      name: "&c상점 비활성화"
+    activate-shop-button:
+      name: "&a상점 활성화"
+    toggle-status-button:
+      lore: "&7이 상점을 {0}하려면 클릭하세요."
+    collect-revenue-button:
+      name: "&e수익 수집"
+      lore1: "&7&e{0} 스택 &7대기 중"
+      lore2: "&7총 아이템: &e{0}"
+      lore3: "&7모든 수익을 수집하려면 클릭하세요!"
+    no-revenue-button:
+      name: "&7수익 없음"
+      lore1: "&7아직 수집할 수익이 없습니다."
+      lore2: "&7고객이 아이템을 구매하면 여기에 수익이 나타납니다."
+      lore3: "&7당신의 상점에서"
+    remove-shop-button:
+      name: "&c상점 제거"
+      lore1: "&7이 상점을 영구적으로 제거하려면 클릭하세요."
+      lore2: "&7모든 아이템과 수익은 당신에게 반환됩니다."
+      lore3: "&c&l경고: 이 작업은 즉시 실행됩니다!"
+      lore4: "&e상점을 완전히 제거하려면 한 번 클릭하세요."
+    no-items:
+      title: "&7상점에 아이템 없음"
+      lore: "&7'아이템 추가'를 클릭하여 아이템 판매를 시작하세요!"
+    item:
+      quantity: "&7수량: &f{0}"
+      price: "&7가격: &a{0}"
+      status: "{0}"
+      description: "&7설명:"
+      left-click: "&e좌클릭하여 편집"
+      right-click: "&e우클릭하여 제거"
+      shift-click: "&eShift-클릭하여 사용 가능 여부 전환"
+    shop-status-changed: "&a상점 {0} 성공!"
+    error:
+      no-revenue: "&c수집할 수익이 없습니다!"
+    shop-removed:
+      success: "&a상점이 성공적으로 제거되었습니다!"
+      items-in-chest: "&7아이템과 수익이 상자와 인벤토리에 저장되었습니다."
+      error:
+        failed-to-remove: "&c상점 제거에 실패했습니다. 대체 방법을 시도 중..."
+        chest-not-found: "&e상점 위치에서 상자를 찾을 수 없습니다. 아이템을 직접 반환합니다."
+        failed-to-remove-from-system: "&c시스템에서 상점을 제거하지 못했습니다!"
+      success-no-items: "&a상점이 성공적으로 제거되었습니다! 반환할 아이템이 없습니다."
+      items-returned: "&a인벤토리에 {0}개의 아이템을 반환했습니다."
+      items-dropped: "&e{0}개의 아이템을 땅에 떨어뜨렸습니다 (인벤토리가 가득 찼습니다)."
+      pickup-items: "&7빨리 주워가세요!"
+      no-items-to-return: "&7반환할 아이템이 없습니다."
+    item-marked-as: "&a아이템이 {0}으로 표시되었습니다!"
+    item-returned-to-inventory: "&a아이템이 인벤토리로 반환되었습니다!"
+  search:
+    title: "&4&l마켓플레이스 브라우저"
+    all-items: "모든 아이템"
+    popular-items-search-query: "인기 아이템"
+    nearby-shops-search-query: "가까운 상점"
+    header:
+      title: "&6마켓플레이스 브라우저"
+      total-items: "&7총 아이템: &e{0}"
+      filtered-results: "&7필터링된 결과: &e{0}"
+      current-search: "&7현재 검색: &f{0}"
+      sort: "&7정렬: &e{0}"
+    search-button:
+      name: "&e아이템 검색"
+      lore1: "&7현재: &f{0}"
+      lore2: "&7아이템 이름으로 검색하려면 클릭하세요."
+    clear-search-button:
+      name: "&c검색 지우기"
+      lore: "&7모든 아이템을 표시하려면 클릭하세요."
+    refresh-button:
+      name: "&a새로 고침"
+      lore: "&7마켓플레이스 데이터를 다시 로드하려면 클릭하세요."
+    sort-button:
+      name: "&e정렬: {0}"
+      lore1: "&7정렬을 변경하려면 클릭하세요."
+      lore2: "&7• 거리 (가장 가까운 순)"
+      lore3: "&7• 이름 A-Z / Z-A"
+      lore4: "&7• 가격 낮음 / 높음"
+      lore5: "&7• 수량"
+    affordable-only-button:
+      name-on: "&a구매 가능한 아이템만"
+      name-off: "&c모든 아이템 표시"
+      lore1: "&7구매 가능 필터를 전환하려면 클릭하세요."
+      lore2-on: "&7구매 가능한 아이템만 표시 중"
+      lore2-off: "&7모든 아이템 표시 중"
+    popular-items-button:
+      name: "&e인기 아이템"
+      lore: "&7가장 많이 팔리는 아이템 표시"
+    nearby-shops-button:
+      name: "&e가까운 상점"
+      lore: "&71000 블록 이내의 상점 표시"
+    no-results:
+      title: "&c아이템을 찾을 수 없습니다."
+      no-items-for-sale: "&7현재 판매 중인 아이템이 없습니다."
+      no-items-match: "&7일치하는 아이템이 없습니다: &f{0}"
+      try: "&7시도:"
+      try-clear-search: "&7• 검색 지우기"
+      try-change-filters: "&7• 필터 변경"
+      try-refresh: "&7• 데이터 새로 고침"
+    item:
+      quantity: "&7수량: &f{0}"
+      price: "&7가격: &a{0}"
+      seller: "&b{0}"
+      location: "&7위치: &f{0}"
+      world: "&7월드: &f{0}"
+      distance: "&7거리: &e{0}"
+      description: "&7설명:"
+      own-shop-warning: "&6⚠ 이것은 당신의 상점입니다."
+      own-shop-manage: "&7상점을 관리하려면 클릭하세요."
+      can-afford: "&a✓ 구매할 수 있습니다!"
+      click-to-visit: "&e상점을 방문하려면 클릭하세요."
+      cannot-afford: "&c✗ 구매할 수 없습니다."
+      needs: "&7필요: &f{0}"
+      click-to-visit-anyway: "&e어쨌든 방문하려면 클릭하세요."
+    pagination:
+      showing-items: "&7{1}개 중 {0}개 아이템 표시 중"
+      navigation-info:
+        title: "&7탐색"
+        lore1: "&7화살표를 사용하여 페이지를 탐색하세요."
+        lore2: "&7총 {0}개 결과"
+    sort:
+      distance: "거리"
+      name-az: "이름 A-Z"
+      name-za: "이름 Z-A"
+      price-low: "가격 낮음"
+      price-high: "가격 높음"
+      quantity: "수량"
+    showing-popular-items: "&a인기 아이템 표시 중! {0}개 결과 발견."
+    search-cleared: "&a검색 지움! 모든 {0}개 아이템 표시 중."
+    sorting-by: "&a정렬 기준: &e{0}"
+    affordable-only-status: "구매 가능한 아이템만"
+    all-items-status: "모든 아이템"
+    showing-filter-status: "&a{0} 표시 중! {1}개 결과 발견."
+    showing-nearby-shops: "&a가까운 상점 표시 중! 1000 블록 이내에서 {0}개 아이템 발견."
+    marketplace-refreshed: "&a마켓플레이스 새로 고침! 총 {0}개 아이템 발견."
+    opening-own-shop: "&a당신의 상점 관리를 열고 있습니다!"
+  shopbrowse:
+    title: "&4&l{0}의 상점"
+    shop-info:
+      title: "&6상점 주인: &e{0}"
+      location: "&7위치: &f{0}"
+      world: "&7월드: &f{0}"
+      items-for-sale: "&7판매 중인 아이템: &f{0}"
+      status: "&7상태: &a영업 중!"
+    no-items:
+      title: "&c판매 중인 아이템 없음"
+      lore1: "&7이 상점에는 현재 사용 가능한 아이템이 없습니다."
+      lore2: "&7나중에 다시 확인하세요!"
+    item:
+      quantity: "&7수량: &f{0}"
+      price: "&7가격: &a{0}"
+      description: "&7설명:"
+      can-afford:
+        buy-one: "&a좌클릭하여 1개 구매"
+        buy-all: "&aShift-클릭하여 모두 구매 ({0})"
+        buy-custom: "&a우클릭하여 사용자 지정 수량 구매"
+      cannot-afford:
+        title: "&c이 아이템을 구매할 수 없습니다!"
+        needs: "&7필요: &f{0}"
+    shopping-at: "&7{0}의 상점에서 쇼핑 중"
+    total-items: "&7총 아이템: &f{0}"
+    shop-details:
+      title: "&e상점 세부 정보"
+      owner: "&7소유자: &f{0}"
+      location: "&7위치: &f{0}"
+      world: "&7월드: &f{0}"
+      created: "&7생성일: &f{0} 전"
+    error:
+      cannot-afford: "&c이 아이템을 구매할 수 없습니다!"
+      needs: "&7필요: &f{0}"
+  searchinput:
+    prompt: "&e채팅에 검색어를 입력하세요."
+    cancel-instruction: "&7돌아가려면 'cancel'을 입력하세요."
+    search-cancelled: "&c검색 취소됨. 마켓플레이스를 열고 있습니다..."
+    searching-for: "&a검색 중: &e{0}"
+    showing-all-items: "&a마켓플레이스의 모든 아이템 표시 중."
+  shopselection:
+    title: "&4&l관리할 상점 선택"
+    header:
+      title: "&6원격 상점 관리"
+      total-shops: "&7총 상점: &e{0}"
+      lore1: "&7상점을 클릭하여 원격으로 관리하세요."
+      lore2: "&7어디서든 상점을 관리할 수 있습니다!"
+    no-shops:
+      title: "&c상점을 찾을 수 없습니다."
+      lore1: "&7아직 상점이 없습니다!"
+      lore2: "&7먼저 &e/shop create&a로 상점을 만드세요."
+    item:
+      name: "&e{0}. {1}에 있는 상점"
+      status: "{0}"
+      world: "&7월드: &f{0}"
+      items-for-sale: "&7판매 중인 아이템: &e{0}"
+      total-stock: "&7총 재고: &e{0}"
+      revenue-waiting: "&7수익: &a{0}개 아이템 대기 중"
+      no-revenue: "&7수익: &7수집할 수익 없음"
+      created: "&7생성일: &e{0} 전"
+      click-to-manage: "&e이 상점을 원격으로 관리하려면 클릭하세요."
+      manage-lore: "&7아이템 추가 및 제거, 가격 및 설명 설정, 수익 수집"
+    showing-shops: "&7{1}개 중 {0}개 상점 표시 중"
+    your-shops:
+      title: "&7내 상점"
+      total: "&7총: {0}개 상점"
+      lore: "&7상점을 클릭하여 관리하세요."
+    help-button:
+      title: "&e도움말"
+      lore1: "&7원격 상점 관리를 통해 다음을 수행할 수 있습니다:"
+      lore2: "&7• 아이템 추가 및 제거"
+      lore3: "&7• 가격 및 설명 설정"
+      lore4: "&7• 수익 수집"
+      lore5: "&7• 상점 활성화/비활성화"
+      lore6: "&7• 어디서든!"
+    opening-management: "&a{0}에 있는 상점의 원격 관리를 열고 있습니다."
+  priceselection:
+    title: "&4&l가격 아이템 선택"
+    instructions:
+      title: "&6가격 선택"
+      lore1: "&7재료를 클릭하여 가격 아이템으로 추가하세요."
+      lore2: "&7+/- 버튼을 사용하여 수량을 조절하세요."
+      lore3: "&7완료되면 '완료'를 클릭하세요."
+    material:
+      lore1: "&7가격 아이템으로 추가하려면 클릭하세요."
+      lore2: "&7현재 가격: &f{0}"
+    current-price:
+      title: "&6현재 가격 아이템"
+      lore: "&7결제로 필요할 아이템:"
+    current-price-item:
+      name: "&e{0}x {1}"
+      lore1: "&7좌클릭: +1"
+      lore2: "&7우클릭: -1"
+      lore3: "&7Shift+우클릭: 제거"
+    done-button:
+      lore: "&7가격 선택을 확인하려면 클릭하세요."
+  purchaseamount:
+    title: "구매 수량 선택"
+    item-name: "&e아이템: &f{0}"
+    available: "&7사용 가능: &f{0}"
+    price-per-item: "&7아이템당 가격: &a{0}"
+    total-cost: "&7총 비용: &a{0}"
+    seller: "&b{0}"
+    decrease-10:
+      name: "&c-10"
+      lore: "&7수량을 10 감소시킵니다."
+    decrease-1:
+      name: "&c-1"
+      lore: "&7수량을 1 감소시킵니다."
+    amount-display: "&e수량: {0}"
+    max-available: "&7최대 사용 가능: {0}"
+    increase-1:
+      name: "&a+1"
+      lore: "&7수량을 1 증가시킵니다."
+    increase-10:
+      name: "&a+10"
+      lore: "&7수량을 10 증가시킵니다."
+    max-button:
+      name: "&a최대 ({0})"
+      lore: "&7수량을 최대 사용 가능으로 설정"
+    purchase-button:
+      name: "&a구매"
+      lore1: "&7{0}x {1} 구매"
+      lore2: "&7총: {0}"
+      confirm-lore: "&e구매를 확인하려면 클릭하세요."
+      not-enough-lore: "&c필요한 아이템이 부족합니다."
+    cannot-afford-button:
+      name: "&c구매할 수 없음"
+    error:
+      cannot-afford: "&c이 구매를 할 수 없습니다."
+      needs: "&7필요: {0}"
+      not-enough-stock: "&c상점에 이 수량에 대한 재고가 충분하지 않습니다."
+    purchase-success:
+      title: "&a구매 성공!"
+      summary: "&7{0}x {1}을(를) 구매했습니다."
+  close-button:
+    name: "&c닫기"
+    lore: "&7메뉴를 닫으려면 클릭하세요."
+  back-button:
+    name: "&e뒤로"
+    lore: "&7이전 메뉴로 돌아가려면 클릭하세요."

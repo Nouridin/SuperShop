@@ -1,0 +1,561 @@
+# Türkçe yerelleştirme dosyası
+
+# Genel
+none: "Yok"
+done: "&aTamamlandı"
+free: "Ücretsiz"
+
+# Genel komut mesajları
+command-player-only: "&cBu komut sadece bir oyuncu tarafından çalıştırılabilir."
+player-not-found: "&cOyuncu bulunamadı."
+
+# Dil komut mesajları
+language:
+  current: "&aMevcut diliniz: &e{0}"
+  available: "&aMevcut diller: &e{0}"
+  usage: "&aKullanım: /superlang <dil>"
+  not-available: "&c'&e{0}&c' dili mevcut değil."
+  set-success: "&aDiliniz &e{0}&a olarak ayarlandı."
+
+# Zaman birimleri
+time-unit-day: "gün"
+time-unit-days: "gün"
+time-unit-hour: "saat"
+time-unit-hours: "saat"
+time-unit-minute: "dakika"
+time-unit-minutes: "dakika"
+time-unit-second: "saniye"
+time-unit-seconds: "saniye"
+
+# Başlık/Altbilgi
+header-separator: "="
+header-title-color: "&e"
+plugin-prefix: "&6[&eSuperShop&6] "
+footer-separator: "="
+
+# Mağaza Yöneticisi ve Temel Mantık
+shop:
+  not-found: "&cMağaza bulunamadı."
+  not-owner: "&cBu mağazanın sahibi siz değilsiniz."
+  loaded-from-database: "&aVeritabanından {0} mağaza yüklendi."
+  saved-to-database: "&aVeritabanına {0} mağaza kaydedildi."
+  create:
+    success: "&aMağaza {0} konumunda başarıyla oluşturuldu!"
+    no-permission: "&cMağaza oluşturma izniniz yok."
+    not-looking-at-chest: "&cMağaza oluşturmak için bir sandığa bakıyor olmalısınız."
+    already-exists: "&cBu konumda zaten bir mağaza var."
+    max-shops-reached: "&cMaksimum mağaza sayısına ({0}) ulaştınız."
+    failed: "&cMağaza oluşturulamadı."
+  created:
+    success: "&aMağaza başarıyla oluşturuldu!"
+    manage-tip: "&aYeni mağazanıza ürün eklemek ve yönetmek için &e/shop manage&a komutunu kullanın."
+    info-tip: "&aSandığa bakarken detaylarını görmek için &e/shop info&a komutunu kullanın."
+  remove:
+    not-owner: "&cBu mağazanın sahibi siz değilsiniz."
+    success: "&aMağaza başarıyla kaldırıldı."
+    items-returned: "&aMağazadaki eşyalar envanterinize iade edildi."
+    no-items-to-return: "&7İade edilecek eşya veya gelir yok."
+    items-added-to-inventory: "&aEnvanterinize {0} eşya eklendi."
+    items-dropped: "&cEnvanteriniz doluydu. {0} eşya yere düştü."
+    not-looking-at-chest: "&cMağazayı kaldırmak için bir sandığa bakıyor olmalısınız."
+  force-remove:
+    no-permission: "&cMağazayı zorla kaldırmak için OP olmalısınız."
+    items-not-returned: "&eNot: Eşyalar sahibine iade edilmedi."
+    not-looking-at-chest: "&cMağazayı zorla kaldırmak için bir sandığa bakıyor olmalısınız."
+  list:
+    no-shops: "&cHala mağazanız yok. Başlamak için &e/shop create&c komutunu kullanın."
+    header: "Mağazalarınız"
+    item: "&e{0}. &aKonum: &f{1} &aDurum: &f{2} &aEşyalar: &f{3} &7(/shop manage {4} ile yönetin)"
+    manage-tip: "&aBir mağazayı yönetmek için &e/shop manage <numara>&a komutunu kullanın."
+    create-tip: "&aİlk mağazanızı oluşturmak için &e/shop create&a komutunu kullanın!"
+  status:
+    active: "&aAktif"
+    inactive: "&cPasif"
+  manage:
+    invalid-number: "&cHatalı mağaza numarası. Lütfen 1 ile {0} arasında bir sayı seçin."
+    list-tip: "&cMağaza numaralarınızı görmek için &e/shop list&c komutunu kullanın."
+    opening-remote: "&a{0} konumundaki mağaza için uzaktan yönetim açılıyor..."
+    invalid-number-format: "&cHatalı sayı formatı. Lütfen bir sayı kullanın."
+  info:
+    not-looking-at-chest: "&cBilgilerini görmek için bir sandığa bakıyor olmalısınız."
+    header: "Mağaza Bilgileri"
+    owner: "&aSahibi: &f{0}"
+    location: "&aKonum: &f{0}"
+    world: "&aDünya: &f{0}"
+    items-for-sale: "&aSatılık eşyalar: &f{0}"
+    status: "&aDurum: &f{0}"
+    created: "&aOluşturuldu: &f{0} önce"
+  give:
+    no-permission: "&cBu komutu kullanma izniniz yok."
+    received-self: "&aBir Mağaza Arama Kitabı aldınız."
+    given-other: "&a&e{0}&a adlı oyuncuya bir Mağaza Arama Kitabı verdiniz."
+    received-other: "&a&e{0}&a adlı oyuncudan bir Mağaza Arama Kitabı aldınız."
+  stats:
+    no-permission: "&cMağaza istatistiklerini görüntüleme izniniz yok."
+    header: "Mağaza İstatistikleri"
+    total-shops: "&aToplam Mağaza: &f{0}"
+    active-shops: "&aAktif Mağaza: &f{0}"
+    total-items: "&aSatılık Toplam Eşya: &f{0}"
+  reload:
+    no-permission: "&cEklentiyi yeniden yükleme izniniz yok."
+    success: "&aSuperShop başarıyla yeniden yüklendi."
+  help:
+    header: "SuperShop Yardım"
+    create: "&e/shop create&7 - Baktığınız sandıkta yeni bir mağaza oluşturur."
+    remove: "&e/shop remove&7 - Baktığınız sandıktaki mağazayı kaldırır."
+    list: "&e/shop list&7 - Tüm mağazalarınızı listeler."
+    manage: "&e/shop manage [numara]&7 - Mağazalarınızdan birinin yönetim GUI'sini açar."
+    info: "&e/shop info&7 - Baktığınız mağaza hakkında bilgi gösterir."
+    force-remove: "&c/shop force remove&7 - (OP) Bir mağazayı zorla kaldırır."
+    give: "&e/shop give [oyuncu]&7 - Bir oyuncuya Mağaza Arama Kitabı verir."
+    stats: "&e/shop stats&7 - Sunucudaki mağazaların istatistiklerini gösterir."
+    reload: "&e/shop reload&7 - Eklentinin yapılandırmasını yeniden yükler."
+  item:
+    added-success: "&aEşya mağazaya başarıyla eklendi."
+    not-found: "&cBu eşya mağazada bulunamadı."
+    removed-success: "&aEşya mağazadan başarıyla kaldırıldı."
+    sold-out: "&e'&f{0}&e' eşyanız tükendi!"
+  purchase:
+    item-unavailable: "&cBu eşya artık mevcut değil veya stokta yok."
+    insufficient-items: "&cBu satın alma işlemi için gerekli eşyalara sahip değilsiniz."
+    success: "&a{0}x {1} başarıyla satın alındı!"
+  owner:
+    purchase-notification: "&e{0} &asizin mağazanızdan {1}x {2} satın aldı!"
+    revenue-waiting: "&aYeni geliriniz var! Toplamak için &e/shop manage&a komutunu kullanın."
+  revenue:
+    no-revenue: "&cToplanacak geliriniz yok."
+    collected: "&aMağaza gelirinizden {0} eşya toplandı!"
+
+# Dinleyiciler
+listener:
+  chest-interact:
+    shop-inactive: "&cBu mağaza şu anda pasif!"
+    cannot-break-not-owner: "&cSize ait olmayan bir mağaza sandığını kıramazsınız!"
+    shop-owner: "&7Mağaza sahibi: &e{0}"
+    force-remove-tip: "&7Operatörseniz '/shop force remove' komutunu kullanın."
+    shift-to-confirm-removal: "&cMağaza kaldırmayı onaylamak için kırarken SHIFT tuşunu basılı tutun!"
+    removal-warning: "&cBu, mağazanızı ve tüm eşyalarını kalıcı olarak silecektir."
+    quick-info:
+      title: "&6&lHızlı Mağaza Bilgisi"
+      items-for-sale: "&7Satılık eşyalar: &e{0}"
+      total-stock: "&7Toplam stok: &e{0}"
+      status: "&7Durum: {0}"
+      last-updated: "&7Son güncelleme: &e{0} önce"
+      manage-tip: "&7Mağazayı yönetmek için normal sağ tıklayın"
+  search-book:
+    disabled: "&cArama Kitabı özelliği şu anda devre dışı!"
+    no-permission: "&cArama Kitabı'nı kullanma izniniz yok!"
+
+# Arama Kitabı Eşyası
+searchbook:
+  item:
+    name: "&6Mağaza Arama Kitabı"
+    lore1: "&7Mağaza arama menüsünü açmak için sağ tıklayın."
+    lore2: "&7Diğer oyuncular tarafından satılan eşyaları bulun!"
+    lore3: "&eHer maceracı için güçlü bir araç!"
+    lore4: "&7SuperShop tarafından sağlanmıştır."
+
+first-login-welcome: "&aSuperShop diğer dilleri destekliyor!\n&aKullan /superlang <en-es-fr-ru-uk-ja-de-pl-kr-br-tr>\n&aSuperShop'u desteklediğin için teşekkürler <3"
+
+# GUI Çevirileri
+gui:
+  available: "&aMevcut"
+  unavailable: "&cMevcut Değil"
+  active: "&aAktif"
+  inactive: "&cPasif"
+  activated: "aktifleştirildi"
+  deactivated: "devre dışı bırakıldı"
+  activate: "aktifleştir"
+  deactivate: "devre dışı bırak"
+  previous-page: "&7← Önceki Sayfa"
+  next-page: "&7Sonraki Sayfa →"
+  page-info: "&7Sayfa {0} / {1}"
+  page-info-short: "&7Sayfa {0} / {1}"
+  done: "&aTamamlandı"
+  free: "Ücretsiz"
+  additem:
+    title: "Mağazaya Eşya Ekle"
+    instructions:
+      title: "&e&lTalimatlar"
+      line1: "&71. Satmak istediğiniz eşyayı belirlenen yuvaya yerleştirin."
+      line2: "&72. Fiyat seçim alanını kullanarak fiyatı ayarlayın."
+      line3: "&73. 'Eşya Ekle' düğmesine tıklayarak işlemi tamamlayın."
+    item-placeholder:
+      name: "&7Satılacak Eşya"
+      lore: "&fSatmak istediğiniz eşyayı buraya yerleştirin."
+    price-placeholder:
+      name: "&7Fiyat Yuvası {0}"
+      lore: "&fFiyatın bir parçası olarak ayarlamak için bir eşyayı buraya yerleştirin."
+    set-price-button:
+      name: "&6Fiyatı Ayarla"
+      lore1: "&7Envanterinizi açmak için tıklayın ve"
+      lore2: "&7fiyat olarak ayarlamak için eşyaları seçin."
+      lore3: "&7Mevcut fiyat eşyaları: &e{0}"
+    clear-price-button:
+      name: "&cFiyatı Temizle"
+      lore: "&7Tüm fiyat eşyalarını kaldırmak için tıklayın."
+    description-button:
+      name: "&bAçıklama Ayarla"
+      lore: "&7Mevcut: &f{0}"
+      lore2: "&7Eşya için bir açıklama ayarlamak için tıklayın."
+    add-button:
+      name: "&aEşyayı Mağazaya Ekle"
+      lore: "&7Bu eşyayı mağazanıza eklemek için tıklayın."
+    description:
+      prompt: "&aLütfen sohbet kutusuna eşyanızın açıklamasını yazın. İptal etmek için 'cancel' yazın."
+      current: "&aMevcut açıklama: &f{0}"
+      coming-soon: "&eAçıklama özelliği yakında geliyor! Yönetim GUI'si açılıyor..."
+    error:
+      no-item-selected: "&cSatmak için bir eşya seçmediniz."
+      no-price-set: "&cEşya için bir fiyat belirlemediniz."
+      non-stackable: "&cYığınlanamayan eşyaların bir yığınını satamazsınız."
+      quantity-too-high: "&cMiktar çok yüksek. Maksimum yığın boyutu 64'tür."
+      not-enough-items: "&cEnvanterinizde yeterli eşya yok."
+  edititem:
+    title: "Mağaza Eşyasını Düzenle"
+    editing-title: "&e&lDüzenleniyor: &f{0}"
+    original-quantity: "&7Orijinal Miktar: &f{0}"
+    current-quantity: "&7Mevcut Miktar: &f{0}"
+    status: "&7Durum: {0}"
+    decrease-1:
+      name: "&c-1"
+      lore: "&7Miktarı 1 azalt."
+    decrease-10:
+      name: "&c-10"
+      lore: "&7Miktarı 10 azalt."
+    quantity-display: "&eMiktar: {0}"
+    increase-1:
+      name: "&a+1"
+      lore: "&7Miktarı 1 artır."
+    increase-10:
+      name: "&a+10"
+      lore: "&7Miktarı 10 artır."
+    price-placeholder:
+      name: "&7Fiyat Yuvası {0}"
+      lore: "&fFiyatın bir parçası olarak ayarlamak için bir eşyayı buraya yerleştirin."
+    clear-price-button:
+      name: "&cFiyatı Temizle"
+      lore: "&7Tüm fiyat eşyalarını kaldırmak için tıklayın."
+    description-button:
+      name: "&bAçıklamayı Düzenle"
+      lore: "&7Mevcut: &f{0}"
+      lore2: "&7Eşya açıklamasını düzenlemek için tıklayın."
+    make-unavailable: "&cMevcut Değil Yap"
+    make-available: "&aMevcut Yap"
+    toggle-availability:
+      lore: "&7Eşya kullanılabilirliğini değiştirmek için tıklayın."
+    save-button:
+      name: "&aDeğişiklikleri Kaydet"
+      lore: "&7Değişikliklerinizi kaydetmek için tıklayın."
+    remove-button:
+      name: "&cEşyayı Kaldır"
+      lore1: "&7Bu eşyayı kalıcı olarak kaldırmak için tıklayın"
+      lore2: "&7mağazanızdan."
+    availability-toggled: "&aEşya kullanılabilirliği değiştirildi."
+    description:
+      prompt: "&aLütfen sohbet kutusuna yeni açıklamayı yazın. İptal etmek için 'cancel' yazın."
+      current: "&aMevcut açıklama: &f{0}"
+      coming-soon: "&eAçıklama özelliği yakında geliyor! Düzenleme GUI'si yeniden açılıyor..."
+    item-updated-success: "&aEşya başarıyla güncellendi."
+    item-returned-to-inventory: "&aEşya ve stoğu envanterinize iade edildi."
+    error:
+      no-inventory-space: "&cEşyalar iade edilemedi, envanteriniz dolu!"
+      min-quantity-1: "&cMiktar en az 1 olmalıdır."
+      non-stackable: "&cBu eşya yığınlanamaz."
+      remove-item-failed: "&cEnvanterinizden eşya kaldırılamadı."
+      not-enough-items-to-increase: "&cStoğu artırmak için envanterinizde bu eşyadan yeterli yok."
+      remove-required-items-failed: "&cGerekli eşyalar envanterinizden kaldırılamadı."
+      not-enough-items-to-add: "&cEklenecek yeterli eşya yok."
+      no-price-set: "&cEşya için bir fiyat belirlemelisiniz."
+      not-enough-items-to-set-quantity: "&cUyarı: Miktarı {0} olarak ayarladınız, ancak envanterinizde sadece {1} var."
+      quantity-too-high: "&cMiktar çok yüksek. Maksimum yığın boyutu 64'tür."
+  shopmanagement:
+    title: "&4&lMağaza Yönetimi"
+    shop-info:
+      title: "&6Mağaza Bilgileri"
+      location: "&7Konum: &f{0}"
+      world: "&7Dünya: &f{0}"
+      items: "&7Eşyalar: &f{0}"
+      status: "&7Durum: {0}"
+      revenue: "&7Gelir: {0}"
+      revenue-waiting: "&e{0} yığın bekliyor"
+    add-item-button:
+      name: "&aEşya Ekle"
+      lore1: "&7Envanterinizden bir eşya eklemek için tıklayın"
+      lore2: "&7bu mağazada satmak için"
+    deactivate-shop-button:
+      name: "&cMağazayı Devre Dışı Bırak"
+    activate-shop-button:
+      name: "&aMağazayı Aktifleştir"
+    toggle-status-button:
+      lore: "&7Bu mağazayı {0} yapmak için tıklayın"
+    collect-revenue-button:
+      name: "&eGeliri Topla"
+      lore1: "&7&e{0} yığın &7bekliyor"
+      lore2: "&7Toplam eşya: &e{0}"
+      lore3: "&7Tüm geliri toplamak için tıklayın!"
+    no-revenue-button:
+      name: "&7Gelir Yok"
+      lore1: "&7Henüz toplanacak gelir yok"
+      lore2: "&7Müşteriler eşya satın aldığında gelir burada görünür"
+      lore3: "&7mağazanızdan"
+    remove-shop-button:
+      name: "&cMağazayı Kaldır"
+      lore1: "&7Bu mağazayı kalıcı olarak kaldırmak için tıklayın"
+      lore2: "&7Tüm eşyalar ve gelir size iade edilecektir"
+      lore3: "&c&lUYARI: Bu işlem anında gerçekleşir!"
+      lore4: "&eMağazayı tamamen kaldırmak için bir kez tıklayın"
+    no-items:
+      title: "&7Mağazada eşya yok"
+      lore: "&7Eşya satmaya başlamak için 'Eşya Ekle'ye tıklayın!"
+    item:
+      quantity: "&7Miktar: &f{0}"
+      price: "&7Fiyat: &a{0}"
+      status: "{0}"
+      description: "&7Açıklama:"
+      left-click: "&eDüzenlemek için sol tıklayın"
+      right-click: "&eKaldırmak için sağ tıklayın"
+      shift-click: "&eKullanılabilirliği değiştirmek için Shift-tıklayın"
+    shop-status-changed: "&aMağaza {0} başarıyla!"
+    error:
+      no-revenue: "&cToplanacak gelir yok!"
+    shop-removed:
+      success: "&aMağaza başarıyla kaldırıldı!"
+      items-in-chest: "&7Eşyalar ve gelir sandığa ve envanterinize depolandı."
+      error:
+        failed-to-remove: "&cMağaza kaldırılamadı. Alternatif yöntem deneniyor..."
+        chest-not-found: "&cMağaza konumunda sandık bulunamadı. Eşyalar doğrudan size iade ediliyor."
+        failed-to-remove-from-system: "&cMağaza sistemden kaldırılamadı!"
+      success-no-items: "&aMağaza başarıyla kaldırıldı! İade edilecek eşya yok."
+      items-returned: "&aEnvanterinize {0} eşya iade edildi."
+      items-dropped: "&e{0} eşya yere düştü (envanter doluydu)."
+      pickup-items: "&7Hızlıca toplayın!"
+      no-items-to-return: "&7İade edilecek eşya yok."
+    item-marked-as: "&aEşya {0} olarak işaretlendi!"
+    item-returned-to-inventory: "&aEşya envanterinize iade edildi!"
+  search:
+    title: "&4&lPazar Yeri Tarayıcısı"
+    all-items: "Tüm Eşyalar"
+    popular-items-search-query: "Popüler Eşyalar"
+    nearby-shops-search-query: "Yakındaki Mağazalar"
+    header:
+      title: "&6Pazar Yeri Tarayıcısı"
+      total-items: "&7Toplam eşya: &e{0}"
+      filtered-results: "&7Filtrelenmiş sonuçlar: &e{0}"
+      current-search: "&7Mevcut arama: &f{0}"
+      sort: "&7Sırala: &e{0}"
+    search-button:
+      name: "&eEşya Ara"
+      lore1: "&7Mevcut: &f{0}"
+      lore2: "&7Eşya adına göre aramak için tıklayın"
+    clear-search-button:
+      name: "&cAramayı Temizle"
+      lore: "&7Tüm eşyaları göstermek için tıklayın"
+    refresh-button:
+      name: "&aYenile"
+      lore: "&7Pazar yeri verilerini yeniden yüklemek için tıklayın"
+    sort-button:
+      name: "&eSırala: {0}"
+      lore1: "&7Sıralamayı değiştirmek için tıklayın"
+      lore2: "&7• Mesafe (en yakın önce)"
+      lore3: "&7• İsim A-Z / Z-A"
+      lore4: "&7• Fiyat Düşük / Yüksek"
+      lore5: "&7• Miktar"
+    affordable-only-button:
+      name-on: "&aSadece Uygun Fiyatlı"
+      name-off: "&cTüm Eşyaları Göster"
+      lore1: "&7Uygun fiyatlı filtreyi değiştirmek için tıklayın"
+      lore2-on: "&7Sadece karşılayabileceğiniz eşyalar gösteriliyor"
+      lore2-off: "&7Tüm eşyalar gösteriliyor"
+    popular-items-button:
+      name: "&ePopüler Eşyalar"
+      lore: "&7En çok satılan eşyaları göster"
+    nearby-shops-button:
+      name: "&eYakındaki Mağazalar"
+      lore: "&71000 blok içindeki mağazaları göster"
+    no-results:
+      title: "&cEşya Bulunamadı"
+      no-items-for-sale: "&7Şu anda satılık eşya yok"
+      no-items-match: "&7Hiçbir eşya eşleşmiyor: &f{0}"
+      try: "&7Deneyin:"
+      try-clear-search: "&7• Aramanızı temizleme"
+      try-change-filters: "&7• Filtreleri değiştirme"
+      try-refresh: "&7• Verileri yenileme"
+    item:
+      quantity: "&7Miktar: &f{0}"
+      price: "&7Fiyat: &a{0}"
+      seller: "&b{0}"
+      location: "&7Konum: &f{0}"
+      world: "&7Dünya: &f{0}"
+      distance: "&7Mesafe: &e{0}"
+      description: "&7Açıklama:"
+      own-shop-warning: "&6⚠ Bu sizin kendi mağazanız"
+      own-shop-manage: "&7Mağazanızı yönetmek için tıklayın"
+      can-afford: "&a✓ Bunu karşılayabilirsiniz!"
+      click-to-visit: "&eMağazayı ziyaret etmek için tıklayın"
+      cannot-afford: "&c✗ Karşılayamazsınız"
+      needs: "&7İhtiyaç: &f{0}"
+      click-to-visit-anyway: "&eYine de ziyaret etmek için tıklayın"
+    pagination:
+      showing-items: "&7{1} eşyadan {0} tanesi gösteriliyor"
+      navigation-info:
+        title: "&7Navigasyon"
+        lore1: "&7Sayfaları gezmek için okları kullanın"
+        lore2: "&7Toplam {0} sonuç"
+    sort:
+      distance: "Mesafe"
+      name-az: "İsim A-Z"
+      name-za: "İsim Z-A"
+      price-low: "Fiyat Düşük"
+      price-high: "Fiyat Yüksek"
+      quantity: "Miktar"
+    showing-popular-items: "&aPopüler eşyalar gösteriliyor! {0} sonuç bulundu."
+    search-cleared: "&aArama temizlendi! Tüm {0} eşyalar gösteriliyor."
+    sorting-by: "&aSıralama ölçütü: &e{0}"
+    affordable-only-status: "sadece uygun fiyatlı eşyalar"
+    all-items-status: "tüm eşyalar"
+    showing-filter-status: "&a{0} gösteriliyor! {1} sonuç bulundu."
+    showing-nearby-shops: "&aYakındaki mağazalar gösteriliyor! 1000 blok içinde {0} eşya bulundu."
+    marketplace-refreshed: "&aPazar yeri yenilendi! Toplam {0} eşya bulundu."
+    opening-own-shop: "&aKendi mağaza yönetiminiz açılıyor!"
+  shopbrowse:
+    title: "&4&l{0}'ın Mağazası"
+    shop-info:
+      title: "&6Mağaza Sahibi: &e{0}"
+      location: "&7Konum: &f{0}"
+      world: "&7Dünya: &f{0}"
+      items-for-sale: "&7Satılık eşyalar: &f{0}"
+      status: "&7Durum: &aİşletmeye açık!"
+    no-items:
+      title: "&cSatılık eşya yok"
+      lore1: "&7Bu mağazada şu anda mevcut eşya yok."
+      lore2: "&7Daha sonra tekrar kontrol edin!"
+    item:
+      quantity: "&7Miktar: &f{0}"
+      price: "&7Fiyat: &a{0}"
+      description: "&7Açıklama:"
+      can-afford:
+        buy-one: "&a1 tane satın almak için sol tıklayın"
+        buy-all: "&aTümünü satın almak için Shift-tıklayın ({0})"
+        buy-custom: "&aÖzel miktar satın almak için sağ tıklayın"
+      cannot-afford:
+        title: "&cBu eşyayı karşılayamazsınız!"
+        needs: "&7İhtiyacınız var: &f{0}"
+    shopping-at: "&7{0}'ın Mağazasında Alışveriş"
+    total-items: "&7Toplam eşya: &f{0}"
+    shop-details:
+      title: "&eMağaza Detayları"
+      owner: "&7Sahibi: &f{0}"
+      location: "&7Konum: &f{0}"
+      world: "&7Dünya: &f{0}"
+      created: "&7Oluşturuldu: &f{0} önce"
+    error:
+      cannot-afford: "&cBu eşyayı karşılayamazsınız!"
+      needs: "&7İhtiyacınız var: &f{0}"
+  searchinput:
+    prompt: "&eSohbet kutusuna arama sorgunuzu girin."
+    cancel-instruction: "&7Geri dönmek için 'cancel' yazın."
+    search-cancelled: "&cArama iptal edildi. Pazar yeri açılıyor..."
+    searching-for: "&aAranıyor: &e{0}"
+    showing-all-items: "&aPazar yerindeki tüm eşyalar gösteriliyor."
+  shopselection:
+    title: "&4&lYönetilecek Mağazayı Seçin"
+    header:
+      title: "&6Uzaktan Mağaza Yönetimi"
+      total-shops: "&7Toplam mağaza: &e{0}"
+      lore1: "&7Uzaktan yönetmek için bir mağazaya tıklayın"
+      lore2: "&7Mağazaları her yerden yönetebilirsiniz!"
+    no-shops:
+      title: "&cMağaza Bulunamadı"
+      lore1: "&7Henüz mağazanız yok!"
+      lore2: "&7Önce &e/shop create&a ile bir mağaza oluşturun"
+    item:
+      name: "&e{0}. {1} konumundaki mağaza"
+      status: "{0}"
+      world: "&7Dünya: &f{0}"
+      items-for-sale: "&7Satılık eşyalar: &e{0}"
+      total-stock: "&7Toplam stok: &e{0}"
+      revenue-waiting: "&7Gelir: &a{0} eşya bekliyor"
+      no-revenue: "&7Gelir: &7Toplanacak gelir yok"
+      created: "&7Oluşturuldu: &e{0} önce"
+      click-to-manage: "&eBu mağazayı uzaktan yönetmek için tıklayın"
+      manage-lore: "&7Eşya ekleyebilir ve kaldırabilir, fiyat ve açıklamaları ayarlayabilir, gelir toplayabilirsiniz"
+    showing-shops: "&7{1} mağazadan {0} tanesi gösteriliyor"
+    your-shops:
+      title: "&7Mağazalarınız"
+      total: "&7Toplam: {0} mağaza"
+      lore: "&7Yönetmek için herhangi bir mağazaya tıklayın"
+    help-button:
+      title: "&eYardım"
+      lore1: "&7Uzaktan mağaza yönetimi şunları yapmanızı sağlar:"
+      lore2: "&7• Eşya ekleme ve kaldırma"
+      lore3: "&7• Fiyat ve açıklamaları ayarlama"
+      lore4: "&7• Gelir toplama"
+      lore5: "&7• Mağazaları aktifleştirme/devre dışı bırakma"
+      lore6: "&7• Hepsi herhangi bir mesafeden!"
+    opening-management: "&a{0} konumundaki mağaza için uzaktan yönetim açılıyor"
+  priceselection:
+    title: "&4&lFiyat Eşyalarını Seçin"
+    instructions:
+      title: "&6Fiyat Seçimi"
+      lore1: "&7Malzemeleri fiyat eşyası olarak eklemek için tıklayın"
+      lore2: "&7Miktarları ayarlamak için +/- düğmelerini kullanın"
+      lore3: "&7Bitince 'Tamamlandı'ya tıklayın"
+    material:
+      lore1: "&7Fiyat eşyası olarak eklemek için tıklayın"
+      lore2: "&7Mevcut fiyatta: &f{0}"
+    current-price:
+      title: "&6Mevcut Fiyat Eşyaları"
+      lore: "&7Ödeme olarak istenecek eşyalar:"
+    current-price-item:
+      name: "&e{0}x {1}"
+      lore1: "&7Sol tıklama: +1"
+      lore2: "&7Sağ tıklama: -1"
+      lore3: "&7Shift+Sağ tıklama: Kaldır"
+    done-button:
+      lore: "&7Fiyat seçimini onaylamak için tıklayın"
+  purchaseamount:
+    title: "Satın Alma Miktarını Seçin"
+    item-name: "&eEşya: &f{0}"
+    available: "&7Mevcut: &f{0}"
+    price-per-item: "&7Eşya başına fiyat: &a{0}"
+    total-cost: "&7Toplam Maliyet: &a{0}"
+    seller: "&b{0}"
+    decrease-10:
+      name: "&c-10"
+      lore: "&7Miktarı 10 azalt"
+    decrease-1:
+      name: "&c-1"
+      lore: "&7Miktarı 1 azalt"
+    amount-display: "&eMiktar: {0}"
+    max-available: "&7Maks. mevcut: {0}"
+    increase-1:
+      name: "&a+1"
+      lore: "&7Miktarı 1 artır"
+    increase-10:
+      name: "&a+10"
+      lore: "&7Miktarı 10 artır"
+    max-button:
+      name: "&aMaks ({0})"
+      lore: "&7Miktarı maksimum mevcuda ayarla"
+    purchase-button:
+      name: "&aSatın Al"
+      lore1: "&7{0}x {1} satın al"
+      lore2: "&7Toplam: {0}"
+      confirm-lore: "&eSatın almayı onaylamak için tıklayın"
+      not-enough-lore: "&cGerekli eşyalara sahip değilsiniz."
+    cannot-afford-button:
+      name: "&cKarşılayamazsınız"
+    error:
+      cannot-afford: "&cBu satın alma işlemini karşılayamazsınız."
+      needs: "&7İhtiyacınız var: {0}"
+      not-enough-stock: "&cMağazada bu miktar için yeterli stok yok."
+    purchase-success:
+      title: "&aSatın alma başarılı!"
+      summary: "&7{0}x {1} satın aldınız."
+  close-button:
+    name: "&cKapat"
+    lore: "&7Menüyü kapatmak için tıklayın."
+  back-button:
+    name: "&eGeri"
+    lore: "&7Önceki menüye dönmek için tıklayın."

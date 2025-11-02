@@ -19,12 +19,18 @@ package me.nouridin.supershop;
 import me.nouridin.supershop.commands.LanguageCommand;
 import me.nouridin.supershop.commands.SearchBookCommand;
 import me.nouridin.supershop.listeners.ChestInteractListener;
+import me.nouridin.supershop.listeners.FirstLoginListener;
 import me.nouridin.supershop.listeners.SearchBookListener;
 import me.nouridin.supershop.managers.*;
 import me.nouridin.supershop.commands.ShopCommand;
 import me.nouridin.supershop.util.MessageUtils;
 import me.nouridin.supershop.util.UpdateChecker;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
 
 public final class supershop extends JavaPlugin {
 
@@ -37,19 +43,19 @@ public final class supershop extends JavaPlugin {
     private ChatInputManager chatInputManager;
     private LocaleManager localeManager;
     private MessageUtils messageUtils;
-    
+
     @Override
     public void onEnable() {
         instance = this;
-        
+
         // Initialize MessageUtils first, as other managers might depend on it for console messages
-        messageUtils = new MessageUtils(this); 
+        messageUtils = new MessageUtils(this);
 
         // Initialize other managers
         configManager = new ConfigManager(this);
         databaseManager = new DatabaseManager(this);
-        localeManager = new LocaleManager(this); 
-        
+        localeManager = new LocaleManager(this);
+
         // Set the LocaleManager in MessageUtils now that both are initialized
         messageUtils.setLocaleManager(localeManager);
 
@@ -57,7 +63,7 @@ public final class supershop extends JavaPlugin {
         searchManager = new SearchManager(this);
         guiManager = new GUIManager(this);
         chatInputManager = new ChatInputManager(this);
-        
+
         // Load player locales from database
         localeManager.setPlayerLocaleMap(databaseManager.loadAllPlayerLocales());
 
@@ -65,20 +71,63 @@ public final class supershop extends JavaPlugin {
         getCommand("shop").setExecutor(new ShopCommand(this));
         getCommand("searchbook").setExecutor(new SearchBookCommand(this));
         getCommand("superlang").setExecutor(new LanguageCommand(this));
-        
+
         // Register listeners
         getServer().getPluginManager().registerEvents(new ChestInteractListener(this), this);
         getServer().getPluginManager().registerEvents(new SearchBookListener(this), this);
-        
+        getServer().getPluginManager().registerEvents(new FirstLoginListener(this), this);
+
         // Load shops from database
         shopManager.loadAllShops();
-        
+
         getLogger().info("Super Shop has been enabled!");
 
         // Check for updates
         UpdateChecker updateChecker = new UpdateChecker(this);
         updateChecker.checkForUpdates();
 
+        // Update localization files
+        updateLocalizationFiles();
+
+    }
+
+    private void updateLocalizationFiles() {
+        File locFolder = new File(getDataFolder(), "loc");
+        String[] languages = {"en.yml", "uk.yml", "ja.yml", "br.yml", "kr.yml", "fr.yml", "pl.yml", "tr.yml", "es.yml", "de.yml", "ru.yml"};
+        String currentVersion = getDescription().getVersion();
+        String savedVersion = configManager.getPluginVersion();
+
+        if (!currentVersion.equals(savedVersion)) {
+            getLogger().info("New plugin version detected: " + currentVersion + ". Updating localization files...");
+
+            // Delete existing loc directory
+            if (locFolder.exists()) {
+                deleteDirectory(locFolder);
+            }
+
+            // Create the loc directory
+            locFolder.mkdirs();
+
+            // Copy the default files from the JAR
+            for (String langFile : languages) {
+                saveResource("loc/" + langFile, false);
+            }
+
+            configManager.setPluginVersion(currentVersion);
+            getLogger().info("Localization files updated to version " + currentVersion);
+        } else {
+            getLogger().info("Localization files are up to date.");
+        }
+    }
+
+    private boolean deleteDirectory(File directoryToBeDeleted) {
+        File[] allContents = directoryToBeDeleted.listFiles();
+        if (allContents != null) {
+            for (File file : allContents) {
+                deleteDirectory(file);
+            }
+        }
+        return directoryToBeDeleted.delete();
     }
 
     @Override
@@ -93,27 +142,27 @@ public final class supershop extends JavaPlugin {
         }
         getLogger().info("Super Shop has been disabled!");
     }
-    
+
     public static supershop getInstance() {
         return instance;
     }
-    
+
     public ShopManager getShopManager() {
         return shopManager;
     }
-    
+
     public SearchManager getSearchManager() {
         return searchManager;
     }
-    
+
     public ConfigManager getConfigManager() {
         return configManager;
     }
-    
+
     public DatabaseManager getDatabaseManager() {
         return databaseManager;
     }
-    
+
     public GUIManager getGuiManager() {
         return guiManager;
     }

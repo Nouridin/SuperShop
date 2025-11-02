@@ -155,6 +155,9 @@ searchbook:
     lore3: "&eA powerful tool for any adventurer!"
     lore4: "&7Provided by SuperShop."
 
+# First Login Message
+first-login-welcome: "&2&lSuperShop &esupports other languages!\n&e&lUse &c/superlang &6&o<en-es-fr-ru-uk-ja-de-pl-kr-br-tr>\n&a&lThanks for supporting &e&lSuperShop <3"
+
 # GUI Translations
 gui:
   available: "&aAvailable"
@@ -309,7 +312,7 @@ gui:
     item:
       quantity: "&7Quantity: &f{0}"
       price: "&7Price: &a{0}"
-      status: "&7Status: {0}"
+      status: "{0}"
       description: "&7Description:"
       left-click: "&eLeft-click to edit"
       right-click: "&eRight-click to remove"
@@ -382,7 +385,7 @@ gui:
     item:
       quantity: "&7Quantity: &f{0}"
       price: "&7Price: &a{0}"
-      seller: "&7Seller: &b{0}"
+      seller: "&b{0}"
       location: "&7Location: &f{0}"
       world: "&7World: &f{0}"
       distance: "&7Distance: &e{0}"
@@ -469,7 +472,7 @@ gui:
       lore2: "&7Create a shop first with &e/shop create"
     item:
       name: "&e{0}. Shop at {1}"
-      status: "&7Status: {0}"
+      status: "{0}"
       world: "&7World: &f{0}"
       items-for-sale: "&7Items for sale: &e{0}"
       total-stock: "&7Total stock: &e{0}"
@@ -518,7 +521,7 @@ gui:
     available: "&7Available: &f{0}"
     price-per-item: "&7Price/item: &a{0}"
     total-cost: "&7Total Cost: &a{0}"
-    seller: "&7Seller: &b{0}"
+    seller: "&b{0}"
     decrease-10:
       name: "&c-10"
       lore: "&7Decrease amount by 10"
@@ -551,3 +554,9 @@ gui:
     purchase-success:
       title: "&aPurchase successful!"
       summary: "&7You bought {0}x {1}."
+  close-button:
+    name: "&cClose"
+    lore: "&7Click to close the menu."
+  back-button:
+    name: "&eBack"
+    lore: "&7Click to go back to the previous menu."

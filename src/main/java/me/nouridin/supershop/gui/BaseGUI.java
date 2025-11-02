@@ -145,11 +145,11 @@ public abstract class BaseGUI {
     }
 
     protected ItemStack createBackButton() {
-        return createButton(Material.ARROW, plugin.getLocaleManager().getMessage(player.getUniqueId(), "gui-back-button-name"), plugin.getLocaleManager().getMessage(player.getUniqueId(), "gui-back-button-lore"));
+        return createButton(Material.ARROW, plugin.getLocaleManager().getMessage(player.getUniqueId(), "gui.back-button.name"), plugin.getLocaleManager().getMessage(player.getUniqueId(), "gui.back-button.lore"));
     }
 
     protected ItemStack createCloseButton() {
-        return createButton(Material.BARRIER, plugin.getLocaleManager().getMessage(player.getUniqueId(), "gui-close-button-name"), plugin.getLocaleManager().getMessage(player.getUniqueId(), "gui-close-button-lore"));
+        return createButton(Material.BARRIER, plugin.getLocaleManager().getMessage(player.getUniqueId(), "gui.close-button.name"), plugin.getLocaleManager().getMessage(player.getUniqueId(), "gui.close-button.lore"));
     }
 
     public void refresh() {

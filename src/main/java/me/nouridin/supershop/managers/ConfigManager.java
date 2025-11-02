@@ -37,6 +37,7 @@ public class ConfigManager {
     
     private void setDefaults() {
         config.addDefault("language", "en"); // New: Default language setting
+        config.addDefault("plugin-version", plugin.getDescription().getVersion()); // Track plugin version
 
         config.addDefault("database.type", "sqlite");
         config.addDefault("database.host", "localhost");
@@ -63,6 +64,17 @@ public class ConfigManager {
     // New: Language getter
     public String getLanguage() {
         return config.getString("language", "en");
+    }
+
+    // New: Plugin version getter
+    public String getPluginVersion() {
+        return config.getString("plugin-version", "0.0.0"); // Default to 0.0.0 if not found
+    }
+
+    // New: Plugin version setter
+    public void setPluginVersion(String version) {
+        config.set("plugin-version", version);
+        plugin.saveConfig();
     }
 
     // Database getters

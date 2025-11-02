@@ -146,6 +146,8 @@ listener:
     disabled: "&c¡La funcionalidad del Libro de Búsqueda está actualmente desactivada!"
     no-permission: "&c¡No tienes permiso para usar el Libro de Búsqueda!"
 
+first-login-welcome: "&a¡SuperShop admite otros idiomas!\n&aUsa /superlang <en-es-fr-ru-uk-ja-de-pl-kr-br-tr>\n&a¡Gracias por apoyar a SuperShop <3"
+
 # SearchBook Item
 searchbook:
   item:
@@ -309,7 +311,7 @@ gui:
     item:
       quantity: "&7Cantidad: &f{0}"
       price: "&7Precio: &a{0}"
-      status: "&7Estado: {0}"
+      status: "{0}"
       description: "&7Descripción:"
       left-click: "&eClic izquierdo para editar"
       right-click: "&eClic derecho para eliminar"
@@ -382,7 +384,7 @@ gui:
     item:
       quantity: "&7Cantidad: &f{0}"
       price: "&7Precio: &a{0}"
-      seller: "&7Vendedor: &b{0}"
+      seller: "&b{0}"
       location: "&7Ubicación: &f{0}"
       world: "&7Mundo: &f{0}"
       distance: "&7Distancia: &e{0}"
@@ -469,7 +471,7 @@ gui:
       lore2: "&7Crea una tienda primero con &e/shop create"
     item:
       name: "&e{0}. Tienda en {1}"
-      status: "&7Estado: {0}"
+      status: "{0}"
       world: "&7Mundo: &f{0}"
       items-for-sale: "&7Artículos en venta: &e{0}"
       total-stock: "&7Stock total: &e{0}"
@@ -518,7 +520,7 @@ gui:
     available: "&7Disponible: &f{0}"
     price-per-item: "&7Precio/artículo: &a{0}"
     total-cost: "&7Costo Total: &a{0}"
-    seller: "&7Vendedor: &b{0}"
+    seller: "&b{0}"
     decrease-10:
       name: "&c-10"
       lore: "&7Disminuir cantidad en 10"
@@ -546,8 +548,15 @@ gui:
       name: "&cNo Puedes Pagar"
     error:
       cannot-afford: "&cNo puedes permitirte esta compra."
-      needs: "&7Necesitas: {0}"
+      needs: "&7Necesitas: &f{0}"
       not-enough-stock: "&cLa tienda no tiene suficiente stock para esta cantidad."
     purchase-success:
       title: "&a¡Compra realizada con éxito!"
       summary: "&7Compraste {0}x {1}."
+  close-button:
+    name: "&cCerrar"
+    lore: "&7Haz clic para cerrar el menú."
+  back-button:
+    name: "&eAtrás"
+    lore: "&7Haz clic para volver al menú anterior."
+

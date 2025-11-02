@@ -1,0 +1,561 @@
+# Fichier de localisation français
+
+# Général
+none: "Aucun"
+done: "&aTerminé"
+free: "Gratuit"
+
+# Messages de commande généraux
+command-player-only: "&cCette commande ne peut être exécutée que par un joueur."
+player-not-found: "&cJoueur introuvable."
+
+# Messages de commande de langue
+language:
+  current: "&aVotre langue actuelle est : &e{0}"
+  available: "&aLangues disponibles : &e{0}"
+  usage: "&aUtilisation : /superlang <langue>"
+  not-available: "&cLa langue '&e{0}&c' n'est pas disponible."
+  set-success: "&aVotre langue a été définie sur &e{0}&a."
+
+# Unités de temps
+time-unit-day: "jour"
+time-unit-days: "jours"
+time-unit-hour: "heure"
+time-unit-hours: "heures"
+time-unit-minute: "minute"
+time-unit-minutes: "minutes"
+time-unit-second: "seconde"
+time-unit-seconds: "secondes"
+
+# En-tête/Pied de page
+header-separator: "="
+header-title-color: "&e"
+plugin-prefix: "&6[&eSuperShop&6] "
+footer-separator: "="
+
+# Gestionnaire de boutique et logique de base
+shop:
+  not-found: "&cBoutique introuvable."
+  not-owner: "&cVous n'êtes pas le propriétaire de cette boutique."
+  loaded-from-database: "&a{0} boutiques chargées depuis la base de données."
+  saved-to-database: "&a{0} boutiques enregistrées dans la base de données."
+  create:
+    success: "&aBoutique créée avec succès à {0}!"
+    no-permission: "&cVous n'avez pas la permission de créer une boutique."
+    not-looking-at-chest: "&cVous devez regarder un coffre pour créer une boutique."
+    already-exists: "&cIl y a déjà une boutique à cet emplacement."
+    max-shops-reached: "&cVous avez atteint le nombre maximum de boutiques ({0})."
+    failed: "&cÉchec de la création de la boutique."
+  created:
+    success: "&aBoutique créée avec succès !"
+    manage-tip: "&aUtilisez &e/shop manage&a pour ajouter des articles et gérer votre nouvelle boutique."
+    info-tip: "&aUtilisez &e/shop info&a en regardant le coffre pour voir ses détails."
+  remove:
+    not-owner: "&cVous n'êtes pas le propriétaire de cette boutique."
+    success: "&aBoutique supprimée avec succès."
+    items-returned: "&aLes articles de la boutique ont été retournés à votre inventaire."
+    no-items-to-return: "&7Aucun article ou revenu à retourner."
+    items-added-to-inventory: "&aAjout de {0} articles à votre inventaire."
+    items-dropped: "&eVotre inventaire était plein. {0} articles ont été déposés au sol."
+    not-looking-at-chest: "&cVous devez regarder un coffre pour supprimer une boutique."
+  force-remove:
+    no-permission: "&cVous devez être un OP pour forcer la suppression d'une boutique."
+    items-not-returned: "&eNote : Les articles n'ont pas été retournés au propriétaire."
+    not-looking-at-chest: "&cVous devez regarder un coffre pour forcer la suppression d'une boutique."
+  list:
+    no-shops: "&cVous n'avez pas encore de boutiques. Utilisez &e/shop create&c pour commencer."
+    header: "Vos boutiques"
+    item: "&e{0}. &aEmplacement : &f{1} &aStatut : &f{2} &aArticles : &f{3} &7(Gérer avec /shop manage {4})"
+    manage-tip: "&aUtilisez &e/shop manage <numéro>&a pour gérer une boutique."
+    create-tip: "&aUtilisez &e/shop create&a pour créer votre première boutique !"
+  status:
+    active: "&aActif"
+    inactive: "&cInactif"
+  manage:
+    invalid-number: "&cNuméro de boutique invalide. Veuillez choisir un numéro entre 1 et {0}."
+    list-tip: "&cUtilisez &e/shop list&c pour voir vos numéros de boutique."
+    opening-remote: "&aOuverture de la gestion à distance pour la boutique à {0}..."
+    invalid-number-format: "&cFormat de numéro invalide. Veuillez utiliser un nombre."
+  info:
+    not-looking-at-chest: "&cVous devez regarder un coffre pour voir ses informations."
+    header: "Informations sur la boutique"
+    owner: "&aPropriétaire : &f{0}"
+    location: "&aEmplacement : &f{0}"
+    world: "&aMonde : &f{0}"
+    items-for-sale: "&aArticles à vendre : &f{0}"
+    status: "&aStatut : &f{0}"
+    created: "&aCréé : &f{0} il y a"
+  give:
+    no-permission: "&cVous n'avez pas la permission d'utiliser cette commande."
+    received-self: "&aVous avez reçu un livre de recherche de boutique."
+    given-other: "&aVous avez donné un livre de recherche de boutique à &e{0}&a."
+    received-other: "&aVous avez reçu un livre de recherche de boutique de &e{0}&a."
+  stats:
+    no-permission: "&cVous n'avez pas la permission de voir les statistiques de la boutique."
+    header: "Statistiques de la boutique"
+    total-shops: "&aTotal des boutiques : &f{0}"
+    active-shops: "&aBoutiques actives : &f{0}"
+    total-items: "&aTotal des articles à vendre : &f{0}"
+  reload:
+    no-permission: "&cVous n'avez pas la permission de recharger le plugin."
+    success: "&aSuperShop rechargé avec succès."
+  help:
+    header: "Aide SuperShop"
+    create: "&e/shop create&7 - Crée une nouvelle boutique au coffre que vous regardez."
+    remove: "&e/shop remove&7 - Supprime la boutique au coffre que vous regardez."
+    list: "&e/shop list&7 - Liste toutes vos boutiques."
+    manage: "&e/shop manage [numéro]&7 - Ouvre l'interface graphique de gestion pour l'une de vos boutiques."
+    info: "&e/shop info&7 - Affiche des informations sur la boutique que vous regardez."
+    force-remove: "&c/shop force remove&7 - (OP) Supprime de force une boutique."
+    give: "&e/shop give [joueur]&7 - Donne un livre de recherche de boutique à un joueur."
+    stats: "&e/shop stats&7 - Affiche les statistiques des boutiques sur le serveur."
+    reload: "&e/shop reload&7 - Recharge la configuration du plugin."
+  item:
+    added-success: "&aArticle ajouté à la boutique avec succès."
+    not-found: "&cCet article n'a pas pu être trouvé dans la boutique."
+    removed-success: "&aArticle supprimé de la boutique avec succès."
+    sold-out: "&eVotre article '&f{0}&e' est en rupture de stock !"
+  purchase:
+    item-unavailable: "&cCet article n'est plus disponible ou est en rupture de stock."
+    insufficient-items: "&cVous n'avez pas les articles requis pour effectuer cet achat."
+    success: "&aAchat réussi de {0}x {1}!"
+  owner:
+    purchase-notification: "&e{0} &aa acheté {1}x {2} dans votre boutique !"
+    revenue-waiting: "&aVous avez de nouveaux revenus en attente ! Utilisez &e/shop manage&a pour les collecter."
+  revenue:
+    no-revenue: "&cVous n'avez aucun revenu à collecter."
+    collected: "&aCollecté {0} articles de vos revenus de boutique !"
+
+# Écouteurs
+listener:
+  chest-interact:
+    shop-inactive: "&cCette boutique est actuellement inactive !"
+    cannot-break-not-owner: "&cVous ne pouvez pas casser un coffre de boutique qui ne vous appartient pas !"
+    shop-owner: "&7Propriétaire de la boutique : &e{0}"
+    force-remove-tip: "&7Utilisez '/shop force remove' si vous êtes un opérateur."
+    shift-to-confirm-removal: "&cMaintenez SHIFT enfoncé en cassant pour confirmer la suppression de la boutique !"
+    removal-warning: "&cCeci supprimera définitivement votre boutique et tous ses articles."
+    quick-info:
+      title: "&6&lInfos rapides sur la boutique"
+      items-for-sale: "&7Articles à vendre : &e{0}"
+      total-stock: "&7Stock total : &e{0}"
+      status: "&7Statut : {0}"
+      last-updated: "&7Dernière mise à jour : &e{0} il y a"
+      manage-tip: "&7Clic droit normal pour gérer la boutique"
+  search-book:
+    disabled: "&cLa fonction de livre de recherche est actuellement désactivée !"
+    no-permission: "&cVous n'avez pas la permission d'utiliser le livre de recherche !"
+
+# Article Livre de recherche
+searchbook:
+  item:
+    name: "&6Livre de recherche de boutique"
+    lore1: "&7Clic droit pour ouvrir le menu de recherche de boutique."
+    lore2: "&7Trouvez les articles vendus par d'autres joueurs !"
+    lore3: "&eUn outil puissant pour tout aventurier !"
+    lore4: "&7Fourni par SuperShop."
+
+first-login-welcome: "&aSuperShop prend en charge d'autres langues !\n&aUtilisez /superlang <en-es-fr-ru-uk-ja-de-pl-kr-br-tr>\n&aMerci de soutenir SuperShop <3"
+
+# Traductions de l'interface graphique
+gui:
+  available: "&aDisponible"
+  unavailable: "&cIndisponible"
+  active: "&aActif"
+  inactive: "&cInactif"
+  activated: "activé"
+  deactivated: "désactivé"
+  activate: "activer"
+  deactivate: "désactiver"
+  previous-page: "&7← Page précédente"
+  next-page: "&7Page suivante →"
+  page-info: "&7Page {0} sur {1}"
+  page-info-short: "&7Page {0} sur {1}"
+  done: "&aTerminé"
+  free: "Gratuit"
+  additem:
+    title: "Ajouter un article à la boutique"
+    instructions:
+      title: "&e&lInstructions"
+      line1: "&71. Placez l'article que vous souhaitez vendre dans l'emplacement désigné."
+      line2: "&72. Définissez le prix en utilisant la zone de sélection de prix."
+      line3: "&73. Cliquez sur le bouton 'Ajouter un article' pour finaliser."
+    item-placeholder:
+      name: "&7Article à vendre"
+      lore: "&fPlacez l'article que vous souhaitez vendre ici."
+    price-placeholder:
+      name: "&7Emplacement du prix {0}"
+      lore: "&fPlacez un article ici pour le définir comme partie du prix."
+    set-price-button:
+      name: "&6Définir le prix"
+      lore1: "&7Cliquez pour ouvrir votre inventaire et"
+      lore2: "&7sélectionner les articles à définir comme prix."
+      lore3: "&7Articles de prix actuels : &e{0}"
+    clear-price-button:
+      name: "&cEffacer le prix"
+      lore: "&7Cliquez pour supprimer tous les articles de prix."
+    description-button:
+      name: "&bDéfinir la description"
+      lore: "&7Actuel : &f{0}"
+      lore2: "&7Cliquez pour définir une description pour l'article."
+    add-button:
+      name: "&aAjouter un article à la boutique"
+      lore: "&7Cliquez pour ajouter cet article à votre boutique."
+    description:
+      prompt: "&aVeuillez taper la description de votre article dans le chat. Tapez 'cancel' pour annuler."
+      current: "&aDescription actuelle : &f{0}"
+      coming-soon: "&eLa fonction de description arrive bientôt ! Ouverture de l'interface graphique de gestion..."
+    error:
+      no-item-selected: "&cVous n'avez pas sélectionné d'article à vendre."
+      no-price-set: "&cVous n'avez pas défini de prix pour l'article."
+      non-stackable: "&cVous ne pouvez pas vendre une pile d'articles non empilables."
+      quantity-too-high: "&cLa quantité est trop élevée. La taille maximale de la pile est de 64."
+      not-enough-items: "&cVous n'avez pas assez de cet article dans votre inventaire."
+  edititem:
+    title: "Modifier l'article de la boutique"
+    editing-title: "&e&lModification : &f{0}"
+    original-quantity: "&7Quantité originale : &f{0}"
+    current-quantity: "&7Quantité actuelle : &f{0}"
+    status: "&7Statut : {0}"
+    decrease-1:
+      name: "&c-1"
+      lore: "&7Diminuer la quantité de 1."
+    decrease-10:
+      name: "&c-10"
+      lore: "&7Diminuer la quantité de 10."
+    quantity-display: "&eQuantité : {0}"
+    increase-1:
+      name: "&a+1"
+      lore: "&7Augmenter la quantité de 1."
+    increase-10:
+      name: "&a+10"
+      lore: "&7Augmenter la quantité de 10."
+    price-placeholder:
+      name: "&7Emplacement du prix {0}"
+      lore: "&fPlacez un article ici pour le définir comme partie du prix."
+    clear-price-button:
+      name: "&cEffacer le prix"
+      lore: "&7Cliquez pour supprimer tous les articles de prix."
+    description-button:
+      name: "&bModifier la description"
+      lore: "&7Actuel : &f{0}"
+      lore2: "&7Cliquez pour modifier la description de l'article."
+    make-unavailable: "&cRendre indisponible"
+    make-available: "&aRendre disponible"
+    toggle-availability:
+      lore: "&7Cliquez pour basculer la disponibilité de l'article."
+    save-button:
+      name: "&aEnregistrer les modifications"
+      lore: "&7Cliquez pour enregistrer vos modifications."
+    remove-button:
+      name: "&cSupprimer l'article"
+      lore1: "&7Cliquez pour supprimer définitivement cet article"
+      lore2: "&7de votre boutique."
+    availability-toggled: "&aLa disponibilité de l'article a été basculée."
+    description:
+      prompt: "&aVeuillez taper la nouvelle description dans le chat. Tapez 'cancel' pour annuler."
+      current: "&aDescription actuelle : &f{0}"
+      coming-soon: "&eLa fonction de description arrive bientôt ! Réouverture de l'interface graphique d'édition..."
+    item-updated-success: "&aArticle mis à jour avec succès."
+    item-returned-to-inventory: "&aL'article et son stock ont été retournés à votre inventaire."
+    error:
+      no-inventory-space: "&cImpossible de retourner les articles, votre inventaire est plein !"
+      min-quantity-1: "&cLa quantité doit être d'au moins 1."
+      non-stackable: "&cCet article n'est pas empilable."
+      remove-item-failed: "&cÉchec de la suppression de l'article de votre inventaire."
+      not-enough-items-to-increase: "&cVous n'avez plus de cet article dans votre inventaire pour augmenter le stock."
+      remove-required-items-failed: "&cImpossible de supprimer les articles requis de votre inventaire."
+      not-enough-items-to-add: "&cVous n'avez pas assez d'articles à ajouter."
+      no-price-set: "&cVous devez définir un prix pour l'article."
+      not-enough-items-to-set-quantity: "&cAvertissement : Vous avez défini la quantité à {0}, mais vous n'avez que {1} dans votre inventaire."
+      quantity-too-high: "&cLa quantité est trop élevée. La taille maximale de la pile est de 64."
+  shopmanagement:
+    title: "&4&lGérer la boutique"
+    shop-info:
+      title: "&6Informations sur la boutique"
+      location: "&7Emplacement : &f{0}"
+      world: "&7Monde : &f{0}"
+      items: "&7Articles : &f{0}"
+      status: "&7Statut : {0}"
+      revenue: "&7Revenu : {0}"
+      revenue-waiting: "&e{0} piles en attente"
+    add-item-button:
+      name: "&aAjouter un article"
+      lore1: "&7Cliquez pour ajouter un article de votre inventaire"
+      lore2: "&7à vendre dans cette boutique"
+    deactivate-shop-button:
+      name: "&cDésactiver la boutique"
+    activate-shop-button:
+      name: "&aActiver la boutique"
+    toggle-status-button:
+      lore: "&7Cliquez pour {0} cette boutique"
+    collect-revenue-button:
+      name: "&eCollecter les revenus"
+      lore1: "&7Vous avez &e{0} piles &7en attente"
+      lore2: "&7Total des articles : &e{0}"
+      lore3: "&7Cliquez pour collecter tous les revenus !"
+    no-revenue-button:
+      name: "&7Aucun revenu"
+      lore1: "&7Aucun revenu à collecter pour l'instant"
+      lore2: "&7Les revenus apparaissent ici lorsque les clients"
+      lore3: "&7achètent des articles dans votre boutique"
+    remove-shop-button:
+      name: "&cSupprimer la boutique"
+      lore1: "&7Cliquez pour supprimer définitivement cette boutique"
+      lore2: "&7Tous les articles et revenus vous seront retournés"
+      lore3: "&c&lAVERTISSEMENT : Cette action est immédiate !"
+      lore4: "&eCliquez une fois pour supprimer complètement la boutique"
+    no-items:
+      title: "&7Aucun article dans la boutique"
+      lore: "&7Cliquez sur 'Ajouter un article' pour commencer à vendre des articles !"
+    item:
+      quantity: "&7Quantité : &f{0}"
+      price: "&7Prix : &a{0}"
+      status: "{0}"
+      description: "&7Description :"
+      left-click: "&eClic gauche pour modifier"
+      right-click: "&eClic droit pour supprimer"
+      shift-click: "&eShift-clic pour basculer la disponibilité"
+    shop-status-changed: "&aBoutique {0} avec succès !"
+    error:
+      no-revenue: "&cAucun revenu à collecter !"
+    shop-removed:
+      success: "&aBoutique supprimée avec succès !"
+      items-in-chest: "&7Les articles et les revenus ont été stockés dans le coffre et votre inventaire."
+      error:
+        failed-to-remove: "&cÉchec de la suppression de la boutique. Tentative d'une méthode alternative..."
+        chest-not-found: "&cCoffre introuvable à l'emplacement de la boutique. Retour des articles directement à vous."
+        failed-to-remove-from-system: "&cÉchec de la suppression de la boutique du système !"
+      success-no-items: "&aBoutique supprimée avec succès ! Aucun article à retourner."
+      items-returned: "&a{0} articles retournés à votre inventaire."
+      items-dropped: "&e{0} articles ont été déposés au sol (l'inventaire était plein)."
+      pickup-items: "&7Ramassez-les rapidement !"
+      no-items-to-return: "&7Aucun article à retourner."
+    item-marked-as: "&aArticle marqué comme {0} !"
+    item-returned-to-inventory: "&aArticle retourné à votre inventaire !"
+  search:
+    title: "&4&lNavigateur du marché"
+    all-items: "Tous les articles"
+    popular-items-search-query: "Articles populaires"
+    nearby-shops-search-query: "Boutiques à proximité"
+    header:
+      title: "&6Navigateur du marché"
+      total-items: "&7Total des articles : &e{0}"
+      filtered-results: "&7Résultats filtrés : &e{0}"
+      current-search: "&7Recherche actuelle : &f{0}"
+      sort: "&7Trier : &e{0}"
+    search-button:
+      name: "&eRechercher des articles"
+      lore1: "&7Actuel : &f{0}"
+      lore2: "&7Cliquez pour rechercher par nom d'article"
+    clear-search-button:
+      name: "&cEffacer la recherche"
+      lore: "&7Cliquez pour afficher tous les articles"
+    refresh-button:
+      name: "&aActualiser"
+      lore: "&7Cliquez pour recharger les données du marché"
+    sort-button:
+      name: "&eTrier : {0}"
+      lore1: "&7Cliquez pour changer le tri"
+      lore2: "&7• Distance (le plus proche en premier)"
+      lore3: "&7• Nom A-Z / Z-A"
+      lore4: "&7• Prix Bas / Élevé"
+      lore5: "&7• Quantité"
+    affordable-only-button:
+      name-on: "&aSeulement abordables"
+      name-off: "&cAfficher tous les articles"
+      lore1: "&7Cliquez pour basculer le filtre abordable"
+      lore2-on: "&7Affichage uniquement des articles que vous pouvez vous permettre"
+      lore2-off: "&7Affichage de tous les articles"
+    popular-items-button:
+      name: "&eArticles populaires"
+      lore: "&7Afficher les articles les plus vendus"
+    nearby-shops-button:
+      name: "&eBoutiques à proximité"
+      lore: "&7Afficher les boutiques dans un rayon de 1000 blocs"
+    no-results:
+      title: "&cAucun article trouvé"
+      no-items-for-sale: "&7Aucun article n'est actuellement à vendre"
+      no-items-match: "&7Aucun article ne correspond : &f{0}"
+      try: "&7Essayez :"
+      try-clear-search: "&7• Effacer votre recherche"
+      try-change-filters: "&7• Changer les filtres"
+      try-refresh: "&7• Actualiser les données"
+    item:
+      quantity: "&7Quantité : &f{0}"
+      price: "&7Prix : &a{0}"
+      seller: "&b{0}"
+      location: "&7Emplacement : &f{0}"
+      world: "&7Monde : &f{0}"
+      distance: "&7Distance : &e{0}"
+      description: "&7Description :"
+      own-shop-warning: "&6⚠ C'est votre propre boutique"
+      own-shop-manage: "&7Cliquez pour gérer votre boutique"
+      can-afford: "&a✓ Vous pouvez vous le permettre !"
+      click-to-visit: "&eCliquez pour visiter la boutique"
+      cannot-afford: "&c✗ Impossible de payer"
+      needs: "&7Besoin : &f{0}"
+      click-to-visit-anyway: "&eCliquez pour visiter quand même"
+    pagination:
+      showing-items: "&7Affichage de {0} articles sur {1}"
+      navigation-info:
+        title: "&7Navigation"
+        lore1: "&7Utilisez les flèches pour parcourir les pages"
+        lore2: "&7{0} résultats au total"
+    sort:
+      distance: "Distance"
+      name-az: "Nom A-Z"
+      name-za: "Nom Z-A"
+      price-low: "Prix Bas"
+      price-high: "Prix Élevé"
+      quantity: "Quantité"
+    showing-popular-items: "&aAffichage des articles populaires ! {0} résultats trouvés."
+    search-cleared: "&aRecherche effacée ! Affichage de tous les {0} articles."
+    sorting-by: "&aTri par : &e{0}"
+    affordable-only-status: "articles abordables uniquement"
+    all-items-status: "tous les articles"
+    showing-filter-status: "&aAffichage de {0} ! {1} résultats trouvés."
+    showing-nearby-shops: "&aAffichage des boutiques à proximité ! {0} articles trouvés dans un rayon de 1000 blocs."
+    marketplace-refreshed: "&aMarché actualisé ! {0} articles au total trouvés."
+    opening-own-shop: "&aOuverture de la gestion de votre boutique !"
+  shopbrowse:
+    title: "&4&lBoutique de {0}"
+    shop-info:
+      title: "&6Propriétaire de la boutique : &e{0}"
+      location: "&7Emplacement : &f{0}"
+      world: "&7Monde : &f{0}"
+      items-for-sale: "&7Articles à vendre : &f{0}"
+      status: "&7Statut : &aOuvert aux affaires !"
+    no-items:
+      title: "&cAucun article à vendre"
+      lore1: "&7Cette boutique n'a actuellement aucun article disponible."
+      lore2: "&7Revenez plus tard !"
+    item:
+      quantity: "&7Quantité : &f{0}"
+      price: "&7Prix : &a{0}"
+      description: "&7Description :"
+      can-afford:
+        buy-one: "&aClic gauche pour acheter 1"
+        buy-all: "&aShift-clic pour tout acheter ({0})"
+        buy-custom: "&aClic droit pour acheter une quantité personnalisée"
+      cannot-afford:
+        title: "&cVous ne pouvez pas vous permettre cet article !"
+        needs: "&7Vous avez besoin de : &f{0}"
+    shopping-at: "&7Achats à la boutique de {0}"
+    total-items: "&7Total des articles : &f{0}"
+    shop-details:
+      title: "&eDétails de la boutique"
+      owner: "&7Propriétaire : &f{0}"
+      location: "&7Emplacement : &f{0}"
+      world: "&7Monde : &f{0}"
+      created: "&7Créé : &f{0} il y a"
+    error:
+      cannot-afford: "&cVous ne pouvez pas vous permettre cet article !"
+      needs: "&7Vous avez besoin de : &f{0}"
+  searchinput:
+    prompt: "&eEntrez votre requête de recherche dans le chat."
+    cancel-instruction: "&7Tapez 'cancel' pour revenir en arrière."
+    search-cancelled: "&cRecherche annulée. Ouverture du marché..."
+    searching-for: "&aRecherche de : &e{0}"
+    showing-all-items: "&aAffichage de tous les articles du marché."
+  shopselection:
+    title: "&4&lSélectionner la boutique à gérer"
+    header:
+      title: "&6Gestion à distance de la boutique"
+      total-shops: "&7Total des boutiques : &e{0}"
+      lore1: "&7Cliquez sur une boutique pour la gérer à distance"
+      lore2: "&7Vous pouvez gérer les boutiques de n'importe où !"
+    no-shops:
+      title: "&cAucune boutique trouvée"
+      lore1: "&7Vous n'avez pas encore de boutiques !"
+      lore2: "&7Créez d'abord une boutique avec &e/shop create"
+    item:
+      name: "&e{0}. Boutique à {1}"
+      status: "{0}"
+      world: "&7Monde : &f{0}"
+      items-for-sale: "&7Articles à vendre : &e{0}"
+      total-stock: "&7Stock total : &e{0}"
+      revenue-waiting: "&7Revenu : &a{0} articles en attente"
+      no-revenue: "&7Revenu : &7Aucun revenu à collecter"
+      created: "&7Créé : &e{0} il y a"
+      click-to-manage: "&eCliquez pour gérer cette boutique à distance"
+      manage-lore: "&7Vous pouvez ajouter et supprimer des articles, définir des prix, collecter des revenus"
+    showing-shops: "&7Affichage de {0} boutiques sur {1}"
+    your-shops:
+      title: "&7Vos boutiques"
+      total: "&7Total : {0} boutiques"
+      lore: "&7Cliquez sur n'importe quelle boutique pour la gérer"
+    help-button:
+      title: "&eAide"
+      lore1: "&7La gestion à distance de la boutique vous permet de :"
+      lore2: "&7• Ajouter et supprimer des articles"
+      lore3: "&7• Définir les prix et les descriptions"
+      lore4: "&7• Collecter les revenus"
+      lore5: "&7• Activer/désactiver les boutiques"
+      lore6: "&7• Tout cela à distance !"
+    opening-management: "&aOuverture de la gestion à distance pour la boutique à {0}"
+  priceselection:
+    title: "&4&lSélectionner les articles de prix"
+    instructions:
+      title: "&6Sélection du prix"
+      lore1: "&7Cliquez sur les matériaux pour les ajouter comme articles de prix"
+      lore2: "&7Utilisez les boutons +/- pour ajuster les quantités"
+      lore3: "&7Cliquez sur 'Terminé' une fois terminé"
+    material:
+      lore1: "&7Cliquez pour ajouter comme article de prix"
+      lore2: "&7Actuel dans le prix : &f{0}"
+    current-price:
+      title: "&6Articles de prix actuels"
+      lore: "&7Articles qui seront requis comme paiement :"
+    current-price-item:
+      name: "&e{0}x {1}"
+      lore1: "&7Clic gauche : +1"
+      lore2: "&7Clic droit : -1"
+      lore3: "&7Shift+Clic droit : Supprimer"
+    done-button:
+      lore: "&7Cliquez pour confirmer la sélection du prix"
+  purchaseamount:
+    title: "Sélectionner la quantité d'achat"
+    item-name: "&eArticle : &f{0}"
+    available: "&7Disponible : &f{0}"
+    price-per-item: "&7Prix/article : &a{0}"
+    total-cost: "&7Coût total : &a{0}"
+    seller: "&b{0}"
+    decrease-10:
+      name: "&c-10"
+      lore: "&7Diminuer la quantité de 10"
+    decrease-1:
+      name: "&c-1"
+      lore: "&7Diminuer la quantité de 1"
+    amount-display: "&eQuantité : {0}"
+    max-available: "&7Max disponible : {0}"
+    increase-1:
+      name: "&a+1"
+      lore: "&7Augmenter la quantité de 1"
+    increase-10:
+      name: "&a+10"
+      lore: "&7Augmenter la quantité de 10"
+    max-button:
+      name: "&aMax ({0})"
+      lore: "&7Définir la quantité au maximum disponible"
+    purchase-button:
+      name: "&aAcheter"
+      lore1: "&7Acheter {0}x {1}"
+      lore2: "&7Pour un total de : {0}"
+      confirm-lore: "&eCliquez pour confirmer l'achat"
+      not-enough-lore: "&cVous n'avez pas les articles requis."
+    cannot-afford-button:
+      name: "&cImpossible de payer"
+    error:
+      cannot-afford: "&cVous ne pouvez pas vous permettre cet achat."
+      needs: "&7Vous avez besoin de : {0}"
+      not-enough-stock: "&cLa boutique n'a pas assez de stock pour cette quantité."
+    purchase-success:
+      title: "&aAchat réussi !"
+      summary: "&7Vous avez acheté {0}x {1}."
+  close-button:
+    name: "&cFermer"
+    lore: "&7Cliquez pour fermer le menu."
+  back-button:
+    name: "&eRetour"
+    lore: "&7Cliquez pour revenir au menu précédent."

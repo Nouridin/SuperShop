@@ -115,11 +115,16 @@ public class DatabaseManager {
             "player_id VARCHAR(36) PRIMARY KEY," +
             "locale VARCHAR(10) NOT NULL" +
             ")";
+
+        String createFirstLoginTable = "CREATE TABLE IF NOT EXISTS first_login_tracking (" +
+            "player_id VARCHAR(36) PRIMARY KEY" +
+            ")";
         
         try (Statement stmt = connection.createStatement()) {
             stmt.execute(createShopsTable);
             stmt.execute(createShopItemsTable);
             stmt.execute(createPlayerLocalesTable);
+            stmt.execute(createFirstLoginTable);
             
             // Add revenue_data column if it doesn't exist (for existing databases)
             try {
@@ -367,6 +372,32 @@ public class DatabaseManager {
             plugin.getMessageUtils().sendConsoleMessage("&cFailed to load player locales: " + e.getMessage());
         }
         return playerLocales;
+    }
+
+    public boolean hasReceivedFirstLoginMessage(UUID playerUUID) {
+        String sql = "SELECT 1 FROM first_login_tracking WHERE player_id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, playerUUID.toString());
+            try (ResultSet rs = stmt.executeQuery()) {
+                return rs.next();
+            }
+        } catch (SQLException e) {
+            plugin.getMessageUtils().sendConsoleMessage("&cFailed to check first login message status for " + playerUUID + ": " + e.getMessage());
+            return false;
+        }
+    }
+
+    public void recordFirstLoginMessage(UUID playerUUID) {
+        String sql = databaseType.equalsIgnoreCase("sqlite") ?
+            "INSERT OR IGNORE INTO first_login_tracking (player_id) VALUES (?)" :
+            "INSERT IGNORE INTO first_login_tracking (player_id) VALUES (?)";
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, playerUUID.toString());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            plugin.getMessageUtils().sendConsoleMessage("&cFailed to record first login message for " + playerUUID + ": " + e.getMessage());
+        }
     }
     
     public void closeConnection() {
